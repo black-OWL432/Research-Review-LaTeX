@@ -1,1 +1,19 @@
+# VS Code settings for LaTeX Workshop
+!.vscode/
+
+# Artifact dir
+out/
+
+# TeX compile artifact
 *.pdf
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.gz
+*.toc
