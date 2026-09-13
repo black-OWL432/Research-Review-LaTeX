@@ -21,7 +21,15 @@
 \usepackage{hyperref}       % Hyperlinks and references
 \usepackage{ragged2e}       % Text alignment
 \usepackage{setspace}       % Line spacing
-\usepackage{hyperref}       % Clickable links and references
+\usepackage[T1]{fontenc}    % Font encoding
+\usepackage{lmodern}        % Font 
+\usepackage[nopatch=footnote]{microtype}  % Microtype (font spacing)
+\usepackage{array}          % Array for tables
+\usepackage{ragged2e}       % Ragged2e for text alignment
+
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\Centering\arraybackslash}p{#1}}
+
 % =========================================
 % APA REFERENCING
 % =========================================
@@ -55,17 +63,13 @@
     labelsep=colon
 }
 
-\captionsetup[figure]{
-    font=captionnine,
-    justification=centering,
-    singlelinecheck=false,
-    labelsep=colon
-}
+% Figure caption setup omitted (no figure environments in document)
 
 
 % =========================================
 % DOCUMENT
 % =========================================
+\emergencystretch=1.5em
 \begin{document}
 
 \begin{center}
@@ -499,7 +503,8 @@ A systematic comparison of the reviewed research articles is provided in Table~\
 
 \fontsize{9pt}{11pt}\selectfont
 
-\begin{tabular}{|p{0.8cm}|p{2.2cm}|p{2.8cm}|p{2.2cm}|p{2.5cm}|p{2.8cm}|p{2.5cm}|}
+\noindent\resizebox{\textwidth}{!}{%
+\begin{tabular}{|C{0.8cm}|L{2.2cm}|L{2.8cm}|L{2.2cm}|L{2.5cm}|L{2.8cm}|L{2.5cm}|}
 \hline
 
 \centering\textbf{No.} &
@@ -586,7 +591,7 @@ Cannot isolate specific mechanics; one semester; single institution
 Wang et al. (2023) &
 Implement gamified web development platform &
 Platform development and evaluation &
-HTML/CSS/JavaScript learning &
+HTML/\allowbreak CSS/\allowbreak JavaScript learning &
 High satisfaction (4.2/5.0); positive feedback on engagement &
 Limited methodological detail; no control group
 \tabularnewline
@@ -602,7 +607,8 @@ Single course; graduate context; no long-term follow-up
 \tabularnewline
 \hline
 
-\end{tabular}
+\end{tabular}%
+}
 
 \end{table}
 
@@ -807,15 +813,15 @@ As the field matures, continued dialogue between theory, empirical research exam
 
 \fontsize{10pt}{12pt}\selectfont
 
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\noindent\resizebox{\textwidth}{!}{%
+\begin{tabular}{|L{2.5cm}|L{2.5cm}|L{2cm}|L{2.5cm}|L{2.5cm}|L{2.5cm}|L{2.5cm}|L{2.5cm}|}
 \hline
 
 \centering\textbf{Article} &
 \centering\textbf{Research Problem} &
 \centering\textbf{Objective} &
 \centering\textbf{Methodology} &
-\centering\textbf{Dataset/Sample} &
+\centering\textbf{Dataset/\allowbreak Sample} &
 \centering\textbf{Key Findings} &
 \centering\textbf{Limitations} &
 \centering\textbf{Research Gap}
@@ -884,14 +890,15 @@ Multi-course and multi-institutional studies; long-term sustainability; scalabil
 
 \fontsize{9pt}{11pt}\selectfont
 
-\begin{tabular}{|p{2cm}|p{2cm}|p{1cm}|p{3cm}|p{3cm}|p{4cm}|}
+\noindent\resizebox{\textwidth}{!}{%
+\begin{tabular}{|L{2cm}|L{2cm}|C{1cm}|L{3cm}|L{3cm}|L{4cm}|}
 \hline
 
 \centering\textbf{Article} &
 \centering\textbf{Student} &
 \centering\textbf{Year} &
 \centering\textbf{Method} &
-\centering\textbf{Dataset/Sample} &
+\centering\textbf{Dataset/\allowbreak Sample} &
 \centering\textbf{Key Results}
 \tabularnewline
 \hline
@@ -997,7 +1004,8 @@ Grad software dev Ecuador &
 \tabularnewline
 \hline
 
-\end{tabular}
+\end{tabular}%
+}
 
 \end{table}
 
@@ -1010,7 +1018,8 @@ Grad software dev Ecuador &
 
 \fontsize{9pt}{11pt}\selectfont
 
-\begin{tabular}{|p{2cm}|p{2cm}|p{4.5cm}|p{4cm}|p{4cm}|}
+\noindent\resizebox{\textwidth}{!}{%
+\begin{tabular}{|C{2cm}|L{2cm}|L{4.5cm}|L{4cm}|L{4cm}|}
 \hline
 
 \centering\textbf{Article} &
@@ -1109,7 +1118,8 @@ Multi-course studies; comparative graduate education research
 \tabularnewline
 \hline
 
-\end{tabular}
+\end{tabular}%
+}
 
 \end{table}
 
