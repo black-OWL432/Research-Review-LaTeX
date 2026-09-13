@@ -1,0 +1,769 @@
+\documentclass[12pt,a4paper]{article}
+
+% =========================================
+% PAGE SETUP
+% =========================================
+\usepackage[
+    a4paper,
+    margin=25.4mm
+]{geometry}
+
+% =========================================
+% BASIC PACKAGES
+% =========================================
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{setspace}
+
+% =========================================
+% APA REFERENCING
+% =========================================
+\usepackage[
+    style=apa,
+    backend=biber
+]{biblatex}
+
+\addbibresource{references.bib}
+
+% =========================================
+% HYPERLINK SETTINGS
+% =========================================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black,
+    citecolor=black,
+    pdftitle={Critical Research Review Article}
+}
+
+\DeclareCaptionFont{captionnine}{\fontsize{9pt}{11pt}\selectfont}
+
+\captionsetup[table]{
+    font=captionnine,
+    justification=raggedright,
+    singlelinecheck=false,
+    labelsep=colon
+}
+
+\captionsetup[figure]{
+    font=captionnine,
+    justification=centering,
+    singlelinecheck=false,
+    labelsep=colon
+}
+
+% =========================================
+% DOCUMENT
+% =========================================
+\begin{document}
+
+\begin{center}
+
+{\fontsize{18}{22}\selectfont\textbf{CRITICAL RESEARCH REVIEW ARTICLE}}
+
+\vspace{0.5cm}
+
+{\fontsize{18}{22}\selectfont\textbf{How Gamification Enhances Education and Learning}}
+
+\vspace{1cm}
+
+{\fontsize{12}{14}\selectfont\textbf{Group Members}}
+
+\vspace{0.3cm}
+
+{\fontsize{12}{14}\selectfont
+1. IMRAN HARIS BIN MOHD AZLI -- 252UC254P6\\
+2. LEE CHONG CHUN -- 252UC254YW\\
+3. SHAM CHALAN -- Unknown\\ % This student did not answer to emails and replies sent to them
+4. YAW YI WEOI -- 251UC250TR
+}
+
+\vspace{0.8cm}
+
+{\fontsize{12}{14}\selectfont
+\textbf{Programme:} Bachelor of Computer Science\\
+\textbf{Course:} CPT6123-RESEARCH METHOD IN COMPUTER SC\\
+\textbf{Lecturer:} Jamal Arshad\\
+\textbf{Semester:} T2620\\
+\textbf{Submission Date:} 13\textsuperscript{th} Sep 2026
+}
+
+\end{center}
+
+% =========================================
+% ABSTRACT
+% =========================================
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{Abstract}
+
+\vspace{0.2cm}
+
+\begin{justify}
+
+Gamification is increasingly used in education to improve student engagement, motivation, participation, satisfaction, and learning outcomes. This review integrates recent peer-reviewed research published between 2022 and 2025, including theoretical work on Self-Determination Theory, a meta-analysis of collaborative learning, design-based research on fantasy-enhanced gamification, case studies in higher education, and empirical studies involving artificial intelligence, web development, vocational learning software, and graduate e-learning. Across the reviewed literature, gamification is generally associated with positive educational outcomes, but the effects are not uniform. Some studies report clear improvements in academic performance, engagement, or satisfaction, whereas others show that performance may improve without statistically significant gains in engagement or motivation. The evidence therefore suggests that the effectiveness of gamification depends on design quality, learner characteristics, educational context, implementation duration, and the extent to which game elements are aligned with learning objectives. This review concludes that gamification can enhance education and learning when it is implemented as a purposeful pedagogical strategy rather than as a simple reward system, while also identifying the need for longitudinal, comparative, and more context-sensitive research.
+
+\vspace{0.3cm}
+
+\textbf{Keywords:} Gamification; Education; Learning; Student Engagement; Motivation; Academic Performance
+
+\end{justify}
+
+% =========================================
+% TABLE OF CONTENTS
+% =========================================
+
+\newpage
+\tableofcontents
+\newpage
+
+% =========================================
+% MAIN CONTENT
+% =========================================
+
+\begin{justify}
+
+% =========================================
+% 1. INTRODUCTION
+% =========================================
+
+\section{Introduction}
+
+\subsection{Background}
+
+\textbf{Gamification} refers to the application of game elements and game-design principles in non-game contexts. In education, commonly used elements include points, badges, leaderboards, levels, challenges, rewards, narratives, progress tracking, and immediate feedback. Recent research shows that these elements are being integrated into a wide range of learning environments, including higher education, collaborative learning, vocational education, web development courses, e-learning, and AI-supported learning systems \parencite{gao2024,slamet2025,dahri2025aigamification,ojonuba2025webgamification,wang2024gamification,sevillacampoverde2025elearning}.
+
+A major theoretical explanation for the effectiveness of gamification is Self-Determination Theory (SDT). Gao argues that gamification should not be understood simply as adding rewards; instead, its motivational effect depends on how learners interpret game elements and whether the design supports autonomy, competence, and relatedness \parencite{gao2024}. This theoretical perspective is consistent with empirical studies that use clear goals, feedback, challenges, progression, collaboration, and personalized learning to improve the learning experience \parencite{ojonuba2025webgamification,sevillacampoverde2025elearning,bai2022incorporating}.
+
+Research also demonstrates that gamification can be implemented in different ways. Slamet and Meng synthesized 35 studies of collaborative learning and found substantial positive effects on both cognitive and attitudinal outcomes \parencite{slamet2025}. Alonso-S\'anchez et al. examined 354 higher-education students and found that students generally perceived gamification as beneficial for learning, academic results, participation, and motivation \parencite{alonsosanchez2025}. At the same time, Ojonuba et al. reported that a gamified web-development system improved performance but did not produce significant differences in engagement or motivation, showing that positive learning effects do not necessarily appear in every measured outcome \parencite{ojonuba2025webgamification}.
+
+\subsection{Problem Statement}
+
+Although gamification is increasingly adopted in educational settings, current research does not present a completely consistent picture of its effectiveness. Many studies report positive relationships between gamification and student engagement, motivation, achievement, satisfaction, or learning performance \parencite{dahri2025aigamification,wang2024gamification,sevillacampoverde2025elearning,slamet2025}. However, other evidence suggests that the effects depend strongly on how gamification is designed and implemented. For example, Ojonuba et al. found that students using a gamified system achieved better performance, yet engagement and motivation were not significantly different from the non-gamified group \parencite{ojonuba2025webgamification}. Bai et al. similarly observed that students initially engaged with a gamified e-learning design but gradually lost interest until a fantasy element was introduced in a later design cycle \parencite{bai2022incorporating}.
+
+These mixed findings indicate that the central issue is not simply whether gamification works, but \textit{how}, \textit{when}, and \textit{under what conditions} it enhances education and learning. Differences in game elements, learner characteristics, subject domain, educational level, implementation period, technology, and research design may all influence outcomes. Therefore, a critical review is needed to compare recent studies, identify areas of agreement and disagreement, and determine the design principles and limitations that should guide future educational gamification. Furthermore, comprehensive reviews of primary and secondary education indicate that while gamification generally improves motivation and engagement, motivation alone is not always a reliable predictor of academic success \parencite{ruiz2024impact}
+
+\subsection{Objectives of the Review}
+
+This review article aims to achieve the following objectives:
+
+\begin{enumerate}
+    \item To examine the theoretical foundations that explain how gamification influences student motivation, engagement, and learning.
+    \item To synthesize recent empirical evidence on the effects of gamification on academic performance, engagement, motivation, satisfaction, and collaborative learning.
+    \item To compare different implementations of gamification across higher education, e-learning, vocational education, web development, and AI-supported learning contexts.
+    \item To identify common advantages, limitations, and design factors associated with successful or unsuccessful gamification interventions.
+    \item To determine research gaps and propose future directions for improving gamification in education and learning.
+\end{enumerate}
+
+\subsection{Research Questions}
+
+This review is guided by the following research questions:
+
+\vspace{0.2cm}
+\textbf{RQ1:} What theoretical mechanisms explain how gamification influences student motivation, engagement, and learning outcomes?
+
+\vspace{0.2cm}
+\textbf{RQ2:} What does recent empirical evidence reveal about the effectiveness of gamification in different educational contexts?
+
+\vspace{0.2cm}
+\textbf{RQ3:} Which gamification design and implementation approaches are associated with positive educational outcomes?
+
+\vspace{0.2cm}
+\textbf{RQ4:} What limitations, inconsistencies, and research gaps remain in current educational gamification research?
+
+% =========================================
+% 2. REVIEW METHODOLOGY
+% =========================================
+
+\section{Review Methodology}
+
+The literature search for this review focused on recent peer-reviewed research that examines gamification in educational and learning contexts. The selected papers were chosen to provide complementary perspectives, including theoretical analysis, meta-analysis, design-based research, case studies, quantitative research, quasi-experimental comparison, software-based teaching experiments, and mixed-methods research.
+
+\subsection{Literature Search Strategy}
+
+\textbf{Databases searched:}
+
+\begin{itemize}
+    \item IEEE Xplore
+    \item SpringerLink
+    \item Other peer-reviewed publisher databases used by group members for relevant educational gamification studies
+\end{itemize}
+
+\textbf{Search keywords and concepts:}
+
+\begin{itemize}
+    \item ``Gamification'' AND ``education''
+    \item ``Gamification'' AND ``learning''
+    \item ``Student engagement'' AND ``gamification''
+    \item ``Academic performance'' AND ``gamification''
+    \item ``Collaborative learning'' AND ``gamification''
+    \item ``Higher education'' AND ``gamification''
+    \item ``AI gamification'' AND ``education''
+    \item ``e-learning'' AND ``gamification''
+\end{itemize}
+
+\textbf{Publication period:}
+
+\begin{itemize}
+    \item 2022--2026, in accordance with the assignment requirement of the most recent five years from 2026
+\end{itemize}
+
+\textbf{Type of publications:}
+
+\begin{itemize}
+    \item Peer-reviewed journal articles and conference papers
+    \item Theoretical papers, meta-analyses, design-based studies, case studies, and empirical research
+    \item Papers directly related to gamification in education or learning
+\end{itemize}
+
+\subsection{Inclusion and Exclusion Criteria}
+
+\textbf{Inclusion criteria:}
+
+\begin{itemize}
+    \item Articles directly addressing gamification in educational or learning contexts
+    \item Peer-reviewed journal or conference papers
+    \item Articles published between 2022 and 2026
+    \item Articles with at least six pages
+    \item Full-text articles available to the group
+    \item Studies that provide theoretical, methodological, empirical, or implementation insights relevant to educational gamification
+\end{itemize}
+
+\textbf{Exclusion criteria:}
+
+\begin{itemize}
+    \item Articles published before 2022
+    \item Non-peer-reviewed publications such as blog posts, opinion pieces, or commercial whitepapers
+    \item Articles with fewer than six pages
+    \item Articles not available in English
+    \item Duplicate publications or overlapping versions of the same study
+    \item Articles that focus on non-educational gamification without a clear learning context
+\end{itemize}
+
+\end{justify}
+
+% =========================================
+% SAMPLE TABLE
+% =========================================
+
+\begin{table}[H]
+\caption{Inclusion and exclusion criteria used for the literature review}
+\label{tab:inclusion-exclusion}
+\fontsize{10pt}{12pt}\selectfont
+
+\begin{tabular}{|p{4cm}|p{5cm}|p{5cm}|}
+\hline
+\centering\textbf{Criteria} &
+\centering\textbf{Inclusion} &
+\centering\textbf{Exclusion}
+\tabularnewline
+\hline
+\centering Publication type &
+\centering Peer-reviewed journal and conference papers &
+\centering Non-peer-reviewed publications
+\tabularnewline
+\hline
+\centering Publication period &
+\centering 2022--2026 &
+\centering Articles published before 2022
+\tabularnewline
+\hline
+\centering Length &
+\centering Minimum 6 pages &
+\centering Fewer than 6 pages
+\tabularnewline
+\hline
+\centering Language &
+\centering English &
+\centering Other languages
+\tabularnewline
+\hline
+\centering Topic &
+\centering Gamification in education and learning &
+\centering Non-educational gamification or unrelated topics
+\tabularnewline
+\hline
+\centering Relevance &
+\centering Directly addresses theory, methodology, outcomes, or implementation &
+\centering Tangentially related studies without clear educational relevance
+\tabularnewline
+\hline
+\end{tabular}
+\end{table}
+
+\begin{justify}
+
+\subsection{Article Selection}
+
+The currently integrated studies were selected to represent different but complementary perspectives on how gamification enhances education and learning. Gao provides a theoretical foundation using Self-Determination Theory \parencite{gao2024}; Slamet and Meng provide broad empirical evidence through meta-analysis \parencite{slamet2025}; Alonso-S\'anchez et al. provide a higher-education case study \parencite{alonsosanchez2025}; and Bai et al. demonstrate how a specific design element, fantasy, can influence sustained engagement in online learning \parencite{bai2022incorporating}.
+
+The review also integrates four studies selected by Yaw Yi Weoi. Dahri et al. examine AI-supported gamification, student engagement, and academic achievement in Malaysia using structural equation modeling \parencite{dahri2025aigamification}. Ojonuba et al. compare a gamified and non-gamified web-development learning system \parencite{ojonuba2025webgamification}. Wang et al. develop and evaluate gamified learning software for vocational students \parencite{wang2024gamification}. Sevilla-Campoverde et al. analyze gamification in online graduate education using a mixed-methods approach \parencite{sevillacampoverde2025elearning}.
+
+Each student must review \textbf{at least 3 research articles}. Therefore:
+
+\begin{itemize}
+    \item \textbf{Minimum articles per student = 3}
+    \item \textbf{Minimum articles per group = 12}
+\end{itemize}
+
+The group may use more than 12 articles if necessary.
+
+% =========================================
+% 3. LITERATURE REVIEW
+% =========================================
+
+\section{Literature Review}
+
+This is the \textbf{main section of the review article}.
+
+\subsection{Theoretical Foundations: Self-Determination Theory and Gamification Design}
+
+Gao provides a theoretical examination of gamification through Self-Determination Theory (SDT), arguing that gamification outcomes depend on more than the presence of game elements \parencite{gao2024}. This aligns with broader systemic reviews of gamification design frameworks, which warn that while well-designed gamified environments foster cognitive benefits and intrinsic motivation, an over-reliance on external rewards can ultimately erode that same motivation \parencite{christopoulos2023gamification}. The paper highlights three underexplored SDT ideas: the continuum of motivation, the mutually supportive nature of basic psychological needs, and the functional significance of an event. These ideas suggest that the same reward, challenge, or feedback mechanism can be motivating for one learner but controlling or discouraging for another. Effective gamification should therefore support \textbf{autonomy}, \textbf{competence}, and \textbf{relatedness} rather than rely only on extrinsic rewards \parencite{gao2024}.
+
+This theoretical perspective is reflected in several empirical studies. Ojonuba et al. designed their web-development gamification using SDT and Flow Theory, combining levels, points, badges, leaderboards, and challenges with structured feedback \parencite{ojonuba2025webgamification}. Sevilla-Campoverde et al. similarly discuss SDT and the RAMP dimensions of relatedness, autonomy, mastery, and purpose as explanations for why gamification can increase motivation and make learning activities more meaningful \parencite{sevillacampoverde2025elearning}. Dahri et al. extend the design perspective by examining AI-driven personalization, adaptive feedback, and individualized rewards as mechanisms that may strengthen engagement and academic achievement \parencite{dahri2025aigamification}.
+
+Bai et al. provide further evidence that design details matter. Their first design cycle used a goal-access-feedback-challenge-collaboration model, but student participation declined after the initial sessions. In a second cycle, the researchers added a fantasy element, creating a GAFCC-F model that produced better online interaction, learning experience, and learning performance \parencite{bai2022incorporating}. This finding supports Gao's argument that the motivational meaning of gamification depends on how design elements are experienced by learners rather than on the simple addition of points or rewards \parencite{gao2024}.
+
+\subsection{Empirical Evidence: Meta-Analysis of Gamification in Collaborative Learning}
+
+Slamet and Meng provide the broadest empirical synthesis among the reviewed studies. A recent synthesis of systematic literature reviews further contextualizes these outcomes, revealing that while 56\% of studies report significant positive effects on student motivation, only 33\% report direct improvements in academic performance \parencite{jaramillo2024impact}. Their meta-analysis identified 35 relevant studies comparing gamified and non-gamified collaborative learning conditions \parencite{slamet2025}. Twenty-eight studies examined cognitive outcomes involving 3,296 participants, while 22 studies examined attitudinal outcomes involving 2,862 participants. The overall effect was large for cognitive learning outcomes ($d=0.875$) and moderate-to-large for attitudinal outcomes ($d=0.748$), indicating that gamification can substantially enhance both learning performance and learners' attitudes in collaborative settings \parencite{slamet2025}.
+
+The individual empirical studies in this review generally support this positive pattern, but they also reveal important variation. Dahri et al. used a quantitative survey and SEM analysis with Malaysian students and found significant positive relationships between gamification and academic achievement, as well as between gamification and student engagement \parencite{dahri2025aigamification}. Wang et al. evaluated gamified learning software with 71 vocational-college students and reported positive responses for learning involvement, motivation, attractiveness of content, enjoyment, challenge, and willingness to continue using the software \parencite{wang2024gamification}.
+
+Sevilla-Campoverde et al. used a mixed-methods design in an online graduate course. Final grades, a Likert-scale satisfaction survey, and open-ended responses were analyzed using Spearman correlation and content analysis. The study reported an average assessment result of 9.78/10 and a significant positive correlation between satisfaction with gamification and grades ($r=0.673$, $p<0.05$) \parencite{sevillacampoverde2025elearning}.
+
+However, Ojonuba et al. provide an important counterpoint. In a study of 60 university students, the gamified group achieved better performance than the non-gamified group, but the researchers found no significant difference in engagement or motivation \parencite{ojonuba2025webgamification}. This mixed result shows why the reviewed literature should not be interpreted as evidence that gamification automatically improves every educational outcome.
+
+\subsection{Practical Implementation: Gamification Case Study in Higher Education}
+
+Alonso-S\'anchez et al. demonstrate a comprehensive higher-education implementation of gamification in two Educational Sciences courses involving 354 students \parencite{alonsosanchez2025}. The experience incorporated a narrative, points, levels, rankings, challenges, missions, badges, rewards, Kahoot, Quizizz, Educaplay, and a WIX-based platform. Students generally reported positive perceptions of their learning, expected academic outcomes, class participation, and motivation, and they preferred the gamified approach to traditional teaching methods \parencite{alonsosanchez2025}.
+
+Other reviewed studies show how practical implementation can vary by context. Wang et al. developed C\# learning software to teach system reliability concepts in applied mathematics, integrating game rules with mathematical derivation and evaluating the software with 71 students \parencite{wang2024gamification}. Ojonuba et al. implemented a web-based gamified environment for web-development education and compared it with a non-gamified system \parencite{ojonuba2025webgamification}. Sevilla-Campoverde et al. structured an online graduate course using the Six Steps to Gamification framework and combined quantitative and qualitative evaluation \parencite{sevillacampoverde2025elearning}.
+
+Bai et al. are especially relevant to practical design because their two-cycle design-based research demonstrates the importance of refinement. The first design produced declining participation over time; the second design added fantasy and achieved better interaction and learning outcomes \parencite{bai2022incorporating}. Together, these studies suggest that successful implementation requires iterative design, meaningful feedback, appropriate challenge, and alignment between game mechanics and the educational task.
+
+% =========================================
+% 4. COMPARATIVE ANALYSIS
+% =========================================
+
+\section{Comparative Analysis of Existing Studies}
+
+A systematic comparison of the reviewed research articles is provided in Table~\ref{tab:comparative-analysis}.
+
+\begin{table}[H]
+\caption{Comparative analysis of the reviewed research studies}
+\label{tab:comparative-analysis}
+\fontsize{8.5pt}{10pt}\selectfont
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{0.8cm}|p{2.4cm}|p{3cm}|p{2.6cm}|p{2.8cm}|p{3.4cm}|p{3.2cm}|}
+\hline
+\centering\textbf{No.} &
+\centering\textbf{Author \& Year} &
+\centering\textbf{Objective} &
+\centering\textbf{Method} &
+\centering\textbf{Focus} &
+\centering\textbf{Key Findings} &
+\centering\textbf{Limitations}
+\tabularnewline
+\hline
+1 & Gao (2024) & Explain gamification using underexplored SDT ideas & Conceptual/theoretical analysis & Motivation, autonomy, competence, relatedness & Gamification effects depend on motivational quality and learners' interpretation of game elements & Conceptual paper; empirical validation is still needed
+\tabularnewline
+\hline
+2 & Slamet \& Meng (2025) & Synthesize evidence in collaborative learning & Meta-analysis of 35 studies & Cognitive and attitudinal outcomes & Large cognitive effect and moderate-to-large attitudinal effect & Heterogeneity and methodological variation across included studies
+\tabularnewline
+\hline
+3 & Alonso-S\'anchez et al. (2025) & Examine student perceptions of gamification in higher education & Cross-sectional case study/survey & Learning, results, participation, motivation & 354 students generally reported positive perceptions and preference for gamified learning & Self-report, non-experimental design, gender imbalance, limited causal inference
+\tabularnewline
+\hline
+4 & Bai et al. (2022) & Test and refine a gamification model with fantasy & Design-based research, two cycles & Online interaction, engagement, learning performance & Adding fantasy improved interaction, learning experience, and performance compared with the first cycle & Small cohorts and course-specific context
+\tabularnewline
+\hline
+5 & Dahri et al. (2025) & Examine AI gamification, engagement, and achievement & Quantitative survey and SEM & AI personalization, engagement, achievement & Significant positive relationships between gamification, engagement, and achievement & Self-report, cross-sectional design, single-country context
+\tabularnewline
+\hline
+6 & Ojonuba et al. (2025) & Compare gamified and non-gamified web learning & Quasi-experimental mixed data & Engagement, motivation, performance & Performance improved, but engagement and motivation showed no significant difference & Prior gaming experience and preferences not measured; Turkey engineering sample
+\tabularnewline
+\hline
+7 & Wang et al. (2024) & Develop and evaluate gamified learning software & Software development, teaching experiment, survey & Engagement and motivation in vocational education & Positive student responses across involvement, motivation, enjoyment, and continued use & Paper notes limited detail on sampling and statistical analysis
+\tabularnewline
+\hline
+8 & Sevilla-Campoverde et al. (2025) & Examine gamification in graduate e-learning & Mixed methods & Performance and satisfaction & Positive association between satisfaction and grades; $r=0.673$ & Context-specific to one online graduate course; no dedicated limitations section identified
+\tabularnewline
+\hline
+9 & Christopoulos \& Mystakidis & Implement educational gamification frameworks, mechanics, and aesthetics. & Conceptual systematic review of 40 design frameworks & Primary and secondary education & Increased motivation does not automatically guarantee academic success & Engagement is often measured via fragmented metrics rather than holistic evaluations
+\tabularnewline
+\hline
+10 & Jaramillo-Mediavilla et al & Synthesize literature reviews to assess impacts on motivation and performance & review of 9 Systematic Literature Reviews & preschool to higher education & Over-reliance on external rewards can erode intrinsic student motivation & A severe lack of teacher training hinders effective curriculum integration
+\tabularnewline
+\hline
+11 & Ruiz et al & Analyze international trends regarding gamification and school engagement & qualitative analysis of 90 empirical articles & preschool to higher education & Integrating narrative fantasy effectively overcomes the engagement "novelty effect" & Sample demographics are often narrow, such as an overrepresentation of Asian populations
+\tabularnewline
+\hline
+\end{tabular}%
+}
+\end{table}
+
+% =========================================
+% 5. SYNTHESIS OF FINDINGS
+% =========================================
+
+\section{Synthesis of Findings}
+
+\subsection{What Do the Studies Agree On?}
+
+The reviewed studies generally agree that gamification can improve important educational outcomes when it is meaningfully integrated with teaching and learning. Positive outcomes include cognitive learning, academic performance, engagement, motivation, satisfaction, participation, and willingness to continue learning \parencite{slamet2025,alonsosanchez2025,dahri2025aigamification,wang2024gamification,sevillacampoverde2025elearning}. The studies also agree that design quality matters. Clear goals, feedback, appropriate challenge, progression, collaboration, personalization, and meaningful narratives appear more important than simply adding rewards \parencite{gao2024,bai2022incorporating,ojonuba2025webgamification}.
+
+\subsection{What Do the Studies Disagree On?}
+
+The main disagreement concerns the consistency of effects on motivation and engagement. Dahri et al., Wang et al., and Alonso-S\'anchez et al. report positive engagement or motivation-related outcomes \parencite{dahri2025aigamification,wang2024gamification,alonsosanchez2025}. In contrast, Ojonuba et al. found better performance without significant improvements in engagement or motivation \parencite{ojonuba2025webgamification}. Bai et al. also show that initial engagement can decline as learners become familiar with the gamification scheme, although redesign with a fantasy element improved the later experience \parencite{bai2022incorporating}. These differences indicate that gamification effects depend on the design, learners, context, and duration rather than following a universal pattern.
+
+\subsection{Which Approaches Appear to Be Most Effective?}
+
+The strongest evidence supports approaches that combine several characteristics. First, gamification should be theory-informed and support autonomy, competence, and relatedness rather than rely only on controlling rewards \parencite{gao2024}. Second, game elements should be aligned with the learning objective and provide meaningful feedback and appropriately difficult challenges \parencite{ojonuba2025webgamification,sevillacampoverde2025elearning}. Third, collaborative, narrative, or fantasy-based elements can help sustain interaction and reduce the loss of interest associated with novelty effects \parencite{bai2022incorporating,slamet2025}. Finally, adaptive or personalized approaches, including AI-supported personalization, may help address differences between learners \parencite{dahri2025aigamification}.
+
+\subsection{What Trends Can Be Observed?}
+
+Several trends are visible in recent research. There is a shift from simple points-and-badges approaches toward more theoretically grounded and comprehensive designs \parencite{gao2024,alonsosanchez2025}. Researchers are increasingly using stronger research designs, including meta-analysis, mixed methods, quasi-experiments, structural equation modeling, and design-based research \parencite{slamet2025,sevillacampoverde2025elearning,dahri2025aigamification,bai2022incorporating}. Another trend is the growing interest in personalization, adaptive learning, AI-supported gamification, and the use of narratives or fantasy to improve sustained engagement \parencite{dahri2025aigamification,bai2022incorporating}.
+
+% =========================================
+% 6. RESEARCH GAPS
+% =========================================
+
+\section{Research Gaps}
+\label{sec:research-gaps}
+
+Despite significant progress in gamification research, several critical gaps require attention:
+
+\begin{enumerate}
+    \item \textbf{Long-Term Effects and Sustainability:} Bai et al. and Ojonuba et al. show that initial interest may decline over time, while several other studies are cross-sectional or short-term \parencite{bai2022incorporating,ojonuba2025webgamification}. More longitudinal evidence is needed.
+    \item \textbf{Causal Evidence:} Several studies rely on self-reported perceptions or cross-sectional designs, which limits causal interpretation \parencite{dahri2025aigamification,alonsosanchez2025}.
+    \item \textbf{Individual Differences:} Learner expectations, prior gaming experience, learning preferences, and demographic differences may influence outcomes but are not consistently measured \parencite{ojonuba2025webgamification,alonsosanchez2025}.
+    \item \textbf{Component-Specific Effects:} Many interventions use several game elements at once, making it difficult to identify which specific element caused an observed effect \parencite{ojonuba2025webgamification}.
+    \item \textbf{Context and Generalizability:} Findings often come from a single institution, country, course, or educational level, limiting generalization to other learning environments \parencite{dahri2025aigamification,ojonuba2025webgamification,sevillacampoverde2025elearning}.
+    \item \textbf{Teacher Readiness and Resources:} AI-supported and technology-intensive gamification may require infrastructure, training, and resources that are not equally available across institutions \parencite{dahri2025aigamification,alonsosanchez2025}.
+    \item \textbf{Measurement Quality:} Some studies rely heavily on perception surveys, while others use objective performance measures; stronger triangulation across behavioral, cognitive, and attitudinal outcomes is needed \parencite{alonsosanchez2025,slamet2025}.
+\end{enumerate}
+
+% =========================================
+% 7. FUTURE RESEARCH DIRECTIONS
+% =========================================
+
+\section{Future Research Directions}
+
+Based on the identified research gaps, the following priorities are proposed for future research:
+
+\begin{enumerate}
+    \item \textbf{Longitudinal Studies:} Examine whether engagement, motivation, and achievement improvements persist after novelty effects disappear \parencite{bai2022incorporating,ojonuba2025webgamification}.
+    \item \textbf{Experimental and Comparative Designs:} Use randomized or stronger quasi-experimental designs to establish causal relationships between gamification and learning outcomes \parencite{dahri2025aigamification,alonsosanchez2025}.
+    \item \textbf{Component-Level Testing:} Use A/B testing or factorial designs to isolate the effects of individual game elements such as points, badges, leaderboards, challenges, feedback, narrative, and fantasy \parencite{ojonuba2025webgamification}.
+    \item \textbf{Adaptive and Personalized Gamification:} Investigate systems that adapt difficulty, rewards, feedback, and learning paths to learner characteristics and progress \parencite{dahri2025aigamification}.
+    \item \textbf{Cross-Cultural and Multi-Institutional Research:} Replicate studies across countries, disciplines, educational levels, and institutions to improve generalizability \parencite{dahri2025aigamification,ojonuba2025webgamification}.
+    \item \textbf{Mixed Evidence Sources:} Combine self-report data with academic records, interaction logs, observations, interviews, and teacher reflections \parencite{alonsosanchez2025}.
+    \item \textbf{Teacher and Institutional Readiness:} Study the training, infrastructure, accessibility, and implementation support required to scale gamification effectively \parencite{dahri2025aigamification,alonsosanchez2025}.
+\end{enumerate}
+
+% =========================================
+% 8. DISCUSSION
+% =========================================
+
+\section{Discussion}
+
+The reviewed literature shows that gamification has meaningful potential to enhance education and learning, but its effects are conditional rather than automatic. The strongest overall evidence comes from the meta-analysis by Slamet and Meng, which reports substantial positive effects on cognitive and attitudinal learning outcomes in collaborative learning \parencite{slamet2025}. This broad result is supported by individual studies reporting positive relationships with academic achievement, satisfaction, motivation, participation, and continued use \parencite{dahri2025aigamification,wang2024gamification,sevillacampoverde2025elearning,alonsosanchez2025}.
+
+At the same time, the findings from Ojonuba et al. and Bai et al. prevent an overly simple conclusion. Ojonuba et al. found that a gamified system improved performance without significantly improving engagement or motivation \parencite{ojonuba2025webgamification}. Bai et al. observed declining participation after the novelty of the original gamification model faded, but the addition of fantasy improved the second design cycle \parencite{bai2022incorporating}. These findings suggest that gamification should be evaluated not only by whether game elements are present, but by whether they create meaningful learning experiences that remain effective over time.
+
+Gao's theoretical analysis helps explain this variation. According to SDT, the same game element may support or undermine motivation depending on how learners interpret it and whether it supports autonomy, competence, and relatedness \parencite{gao2024}. This suggests that a leaderboard, reward, or challenge cannot be assumed to be motivating in every situation. The practical studies reinforce this point by showing the importance of feedback, learner expectations, meaningful challenge, personalization, narrative, and alignment with course objectives \parencite{bai2022incorporating,ojonuba2025webgamification,dahri2025aigamification}.
+
+Overall, the literature supports gamification as a useful educational strategy, especially when implemented as a coherent instructional design rather than as a collection of superficial rewards. The evidence also indicates that future practice should use student feedback, multiple outcome measures, and iterative refinement to ensure that gamification remains relevant and pedagogically meaningful.
+
+% =========================================
+% 9. CONCLUSION
+% =========================================
+
+\section{Conclusion}
+
+This review examined how gamification enhances education and learning by integrating theoretical, meta-analytical, design-based, case-study, quantitative, quasi-experimental, software-development, and mixed-methods research. The reviewed evidence generally indicates that gamification can improve cognitive learning, academic performance, engagement, motivation, satisfaction, participation, and learning experience when it is carefully designed and aligned with educational objectives \parencite{slamet2025,dahri2025aigamification,wang2024gamification,sevillacampoverde2025elearning,alonsosanchez2025}.
+
+However, the evidence also shows that gamification is not universally effective across all outcomes. Performance may improve without corresponding increases in engagement or motivation, and initial interest may decrease as novelty fades \parencite{ojonuba2025webgamification,bai2022incorporating}. These findings support Gao's argument that the effectiveness of gamification depends on motivational quality, learner interpretation, and the degree to which design supports autonomy, competence, and relatedness \parencite{gao2024}.
+
+The most promising direction is therefore not simply to increase the number of game elements, but to develop theory-informed, adaptive, meaningful, and context-sensitive gamification. Future research should use longitudinal and stronger experimental designs, test individual game components, examine diverse learner populations, and evaluate implementation requirements across different educational settings. With these improvements, gamification can be used more effectively as a pedagogical strategy for enhancing education and learning.
+
+\end{justify}
+
+% =========================================
+% REFERENCES
+% =========================================
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\printbibliography[title={References}]
+
+% =========================================
+% APPENDIX A - INDIVIDUAL ARTICLE REVIEW
+% =========================================
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Appendix A -- Individual Article Review}
+
+\begin{flushleft}
+    {\fontsize{14pt}{17pt}\selectfont
+    \textbf{APPENDIX A -- INDIVIDUAL ARTICLE REVIEW}}
+\end{flushleft}
+
+\vspace{0.5cm}
+
+\textbf{Student:} LEE CHONG CHUN / 252UC254YW
+
+\begin{table}[H]
+\caption{Individual article review -- Lee Chong Chun}
+\label{tab:individual-article-review-lee}
+\fontsize{9pt}{11pt}\selectfont
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\centering\textbf{Article} &
+\centering\textbf{Research Problem} &
+\centering\textbf{Objective} &
+\centering\textbf{Methodology} &
+\centering\textbf{Dataset/Sample} &
+\centering\textbf{Key Findings} &
+\centering\textbf{Limitations} &
+\centering\textbf{Research Gap}
+\tabularnewline
+\hline
+Gao (2024) & Mixed gamification findings and superficial use of SDT & Explore three underused SDT ideas for gamification research and design & Conceptual/theoretical analysis & No empirical sample & Motivation should be understood as a continuum; needs interact; the same event can have different motivational meanings & No empirical validation in this conceptual paper & Empirical testing of SDT-based design predictions
+\tabularnewline
+\hline
+Slamet \& Meng (2025) & Need for synthesized evidence on collaborative learning & Estimate gamification effects on cognitive and attitudinal outcomes & Systematic review and meta-analysis & 35 studies; 3,296 participants in cognitive analysis; 2,862 in attitudinal analysis & Large cognitive effect ($d=0.875$) and moderate-to-large attitudinal effect ($d=0.748$) & Heterogeneity and methodological variation among included studies & More rigorous studies on duration, level, and collaborative interaction quality
+\tabularnewline
+\hline
+Alonso-S\'anchez et al. (2025) & Limited evidence on comprehensive gamification in higher education & Examine students' perceptions of a full gamification experience & Cross-sectional case study/survey & 354 higher-education students & Positive perceptions of learning, expected results, participation, motivation, and preference for gamification & Self-report, gender imbalance, non-experimental and cross-sectional design & Objective and longitudinal evaluation across more programs
+\tabularnewline
+\hline
+\end{tabular}%
+}
+\end{table}
+
+\vspace{0.5cm}
+
+\textbf{Student:} YAW YI WEOI / 251UC250TR
+
+\begin{table}[H]
+\caption{Individual article review -- Yaw Yi Weoi}
+\label{tab:individual-article-review-yaw}
+\fontsize{8.7pt}{10.5pt}\selectfont
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\centering\textbf{Article} &
+\centering\textbf{Research Problem} &
+\centering\textbf{Objective} &
+\centering\textbf{Methodology} &
+\centering\textbf{Dataset/Sample} &
+\centering\textbf{Key Findings} &
+\centering\textbf{Limitations} &
+\centering\textbf{Research Gap}
+\tabularnewline
+\hline
+Dahri et al. (2025) & Need to understand links among gamification, AI, engagement, and achievement & Test relationships among AI gamification constructs and student outcomes & Quantitative survey and SEM using SmartPLS & Malaysian students; paper reports 290 in abstract and 286 in conclusion & Significant positive relationships between gamification, engagement, and achievement & Self-report, cross-sectional design, single-country context, limited generalizability & Longitudinal, experimental, qualitative, and cross-cultural research
+\tabularnewline
+\hline
+Ojonuba et al. (2025) & Limited empirical evidence on gamification in web-development education & Compare gamified and non-gamified systems on engagement, motivation, and performance & Quasi-experimental comparison with quantitative and qualitative data & 60 university students & Better performance in gamified group; no significant difference in engagement or motivation & Gaming experience/preferences not measured; multiple mechanics used simultaneously; Turkey engineering sample & Isolate individual mechanics, adaptive difficulty, cross-cultural replication
+\tabularnewline
+\hline
+Wang et al. (2024) & Traditional applied-mathematics teaching may reduce interest and motivation & Develop and evaluate gamified learning software & C\# software development, teaching experiment, questionnaire & 71 vocational-college students & Positive ratings for involvement, motivation, attractiveness, enjoyment, challenge, and continued use & Paper itself notes insufficient detail on sample selection and statistical analysis & Deeper analysis of mechanics, stronger statistics, broader course testing
+\tabularnewline
+\hline
+Sevilla-Campoverde et al. (2025) & Graduate e-learning can involve stress, demotivation, and low satisfaction & Examine relationship between gamification, performance, and satisfaction & Mixed methods; grades, Likert survey, open-ended responses, Spearman correlation, content analysis & 55 students in an online graduate course & Average assessments 9.78/10; satisfaction correlated positively with grades ($r=0.673$) & No dedicated limitations section identified; one-course context limits breadth of evidence & Broader comparative validation across graduate programs and institutions
+\tabularnewline
+\hline
+\end{tabular}%
+}
+\end{table}
+
+\textbf{Student:} Imran Haris Bin Mohd Azli / 252UC254P6
+
+\begin{table}[H]
+\caption{Individual article review}
+\label{tab:individual-article-review-imran}
+\fontsize{8.7pt}{10.5pt}\selectfont
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\centering\textbf{Article} &
+\centering\textbf{Research Problem} &
+\centering\textbf{Objective} &
+\centering\textbf{Methodology} &
+\centering\textbf{Dataset/Sample} &
+\centering\textbf{Key Findings} &
+\centering\textbf{Limitations} &
+\centering\textbf{Research Gap}
+\tabularnewline
+\hline
+Bai et al. (2022) & Fully online teaching struggles with engagement, and gamification interventions often suffer from a novelty effect where interest declines over time. & To test and refine a theoretically grounded gamification model (GAFCC) by incorporating narrative fantasy to enhance learning outcomes. & Design-based research (DBR) across two consecutive semesters to compare the original GAFCC model with the fantasy-integrated GAFCC-F model. & 26 postgraduate students in Study 1, and 23 postgraduate students in Study 2 within an e-learning course. & The GAFCC-F model better promoted student engagement, peer interaction, and learning performance compared to the original model. & The study focused on an applied subject rather than theoretical concepts, and the sample was primarily composed of East Asian students. & Requires testing in other subject disciplines, across diverse cultural backgrounds, and utilizing collaborative online platforms.
+\tabularnewline
+\hline
+Christopoulos \& Mystakidis (2023) & The need to identify critical elements for effective gamification integration without detracting from core learning objectives. & To provide an in-depth exploration of gamification design frameworks, game mechanics, learning mechanics, and aesthetics in education. & Systematic review and synthesis of 40 design frameworks, analyzing six prominent models like MDA, Fogg, and ARCS. & Conceptual review of existing literature and frameworks; no specific human dataset. & Well-designed gamified environments foster cognitive benefits and intrinsic motivation, but over-emphasizing rewards can erode this motivation. & Risks include gamification detracting from learning goals, over-reliance on external rewards, and issues of equitable technology access. & A need for adaptive gamification frameworks sensitive to individual differences, and empirical studies evaluating long-term effects and scalable solutions.
+\tabularnewline
+\hline
+Jaramillo-Mediavilla et al. (2024) & A notable lack of research focusing on the analysis of systematic reviews regarding gamification's influence on motivation and performance. & To collect, evaluate, and synthesize existing systematic literature reviews to understand the impact of gamification on motivation and academic performance. & Systematic Literature Review (SLR) of existing SLRs following PRISMA criteria, searching WoS, Scopus, and Scielo databases. & 9 systematic literature review articles published between 2016 and 2022. & 56\% of studies reported significant positive effects on student motivation, and 33\% reported positive effects on academic performance. & Most reviewed studies had short durations, making it difficult to determine if the positive effects of gamification are maintained over time. & Requires longitudinal studies for long-term effects, exploration of emerging technologies like AI/VR, and tools facilitating context adaptation.
+\tabularnewline
+\hline
+Ruiz et al. (2024) & Current educational systems prioritize academic results over teaching purpose, causing boredom, and gamification research has methodological and conceptual gaps. & To analyze the development of international research on gamification as a strategy to promote school engagement in primary and secondary education. & Systematic review using PRISMA methodology, including qualitative content analysis on articles from 2013 to 2023. & 90 empirical articles collected from Web of Science, EBSCO, and SCOPUS. & Gamification improves motivation and engagement, but motivation alone is not always a predictor for achieving academic success; research is heavily concentrated in Asia (71\%). & Fragmented approach to evaluating engagement (focusing mostly on motivation); small sample sizes and short applicability times in existing studies. & Need to evaluate school engagement holistically, promote research in underrepresented countries, and provide dedicated gamification training for teachers.
+\tabularnewline
+\hline
+\end{tabular}%
+}
+\end{table}
+
+
+
+% =========================================
+% APPENDIX B - ARTICLE MATRIX
+% =========================================
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Appendix B -- Article Matrix}
+
+\begin{flushleft}
+    {\fontsize{14pt}{17pt}\selectfont
+    \textbf{APPENDIX B -- ARTICLE MATRIX}}
+\end{flushleft}
+
+\vspace{0.5cm}
+
+\begin{table}[H]
+\caption{Group article matrix of reviewed research studies (Part 1)}
+\label{tab:article-matrix-1}
+\fontsize{8.5pt}{10pt}\selectfont
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{2.4cm}|p{2.3cm}|p{1cm}|p{3.2cm}|p{3.2cm}|p{5cm}|}
+\hline
+\centering\textbf{Article} &
+\centering\textbf{Student} &
+\centering\textbf{Year} &
+\centering\textbf{Method} &
+\centering\textbf{Dataset/Sample} &
+\centering\textbf{Key Results}
+\tabularnewline
+\hline
+Bai et al. & Imran & 2022 & Design-based research, two cycles & Study 1: 26; Study 2: 23 & Fantasy-enhanced model improved online interaction, learning experience, and performance
+\tabularnewline
+\hline
+Christopoulos \& Mystakidis & Imran & 2023 & Systematic conceptual review & 40 design frameworks & Well-designed gamification boosts cognitive benefits and intrinsic motivation via play and exploration.
+\tabularnewline
+\hline
+Jaramillo-Mediavilla et al. & Imran & 2024 & Systematic review & 90 empirical articles & Gamification increased motivation and improved academic performance
+\tabularnewline
+\hline
+Ruiz et al & Imran & 2024 & systematic review & 90 empirical articles & Motivation improves, but does not guarantee academic success 
+\tabularnewline
+\hline
+Gao & Lee & 2024 & Conceptual SDT analysis & No empirical sample & Identifies motivation continuum, interacting needs, and functional significance as key design concepts
+\tabularnewline
+\hline
+Slamet \& Meng & Lee & 2025 & Meta-analysis & 35 studies & Large cognitive and moderate-to-large attitudinal effects
+\tabularnewline
+\hline
+Alonso-S\'anchez et al. & Lee & 2025 & Case study/survey & 354 students & Positive perceptions of learning, academic results, participation, and motivation
+\tabularnewline
+\hline
+Paper 1 & Sham & -- & To be added & To be added & Awaiting confirmed paper
+\tabularnewline
+\hline
+Paper 2 & Sham & -- & To be added & To be added & Awaiting confirmed paper
+\tabularnewline
+\hline
+Paper 3 & Sham & -- & To be added & To be added & Awaiting confirmed paper
+\tabularnewline
+\hline
+Dahri et al. & Yaw & 2025 & Quantitative survey and SEM & Approx. 290 Malaysian students & Positive relationships between gamification, engagement, and achievement
+\tabularnewline
+\hline
+Ojonuba et al. & Yaw & 2025 & Quasi-experimental mixed data & 60 students & Better performance; no significant engagement/motivation difference
+\tabularnewline
+\hline
+Wang et al. & Yaw & 2024 & Software development, experiment, survey & 71 students & Positive perceptions of involvement, motivation, enjoyment, and continued use
+\tabularnewline
+\hline
+Sevilla-Campoverde et al. & Yaw & 2025 & Mixed methods & 55 graduate students & Positive association between satisfaction and grades
+\tabularnewline
+\hline
+\end{tabular}%
+}
+\end{table}
+
+\vspace{0.5cm}
+
+\begin{table}[H]
+\caption{Group article matrix of reviewed research studies (Part 2)}
+\label{tab:article-matrix-2}
+\fontsize{8.5pt}{10pt}\selectfont
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{2.4cm}|p{2.3cm}|p{4.8cm}|p{4.8cm}|p{5cm}|}
+\hline
+\centering\textbf{Article} &
+\centering\textbf{Student} &
+\centering\textbf{Strength} &
+\centering\textbf{Limitation} &
+\centering\textbf{Research Gap}
+\tabularnewline
+\hline
+Bai et al. & Imran & Iterative design shows how fantasy can improve sustained interaction & Small cohorts; one course context & Replication in larger and different online-learning settings
+\tabularnewline
+\hline
+Christopoulos \& Mystakidis & Imran & Provides a holistic taxonomy of mechanics and aesthetics & Highlights risks of detracting from learning goals via external rewards & Requires long-term empirical studies and adaptive, individualized frameworks
+\tabularnewline
+\hline
+Jaramillo-Mediavilla et al. & Imran & Offers a meta-level synthesis of gamification's impact & Most underlying studies were short-term & Needs longitudinal research and exploration of AI/VR technologies
+\tabularnewline
+\hline
+Ruiz et al. & Imran & Comprehensively maps a decade of trends in basic education & studies use short timeframes and small samples & Requires holistic engagement evaluation and dedicated teacher training
+\tabularnewline
+\hline
+Gao & Lee & Strong theoretical framework grounded in SDT & No direct empirical validation & Test SDT-based design propositions empirically
+\tabularnewline
+\hline
+Slamet \& Meng & Lee & Broad synthesis with quantitative effect sizes & Heterogeneity across studies & More rigorous research on duration, level, and interaction quality
+\tabularnewline
+\hline
+Alonso-S\'anchez et al. & Lee & Large higher-education sample and detailed implementation & Self-report, cross-sectional, non-experimental & Objective measures, longitudinal and multi-program research
+\tabularnewline
+\hline
+Paper 1 & Sham & To be added & To be added & Awaiting confirmed paper
+\tabularnewline
+\hline
+Paper 2 & Sham & To be added & To be added & Awaiting confirmed paper
+\tabularnewline
+\hline
+Paper 3 & Sham & To be added & To be added & Awaiting confirmed paper
+\tabularnewline
+\hline
+Dahri et al. & Yaw & Strong SEM model and Malaysia-specific educational evidence & Self-report and cross-sectional design & Longitudinal and experimental validation in broader contexts
+\tabularnewline
+\hline
+Ojonuba et al. & Yaw & Direct comparison of gamified and non-gamified learning & Cannot isolate individual game mechanics; context-specific sample & A/B or factorial studies, adaptive and cross-cultural testing
+\tabularnewline
+\hline
+Wang et al. & Yaw & Concrete software implementation with student evaluation & Limited methodological and statistical detail & Stronger evaluation and expansion to other courses
+\tabularnewline
+\hline
+Sevilla-Campoverde et al. & Yaw & Combines grades, survey, and qualitative feedback & One graduate-course context; limitations not explicitly developed & Multi-course and comparative graduate education studies
+\tabularnewline
+\hline
+\end{tabular}%
+}
+\end{table}
+
+\end{document}
