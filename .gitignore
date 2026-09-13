@@ -5,7 +5,7 @@
 out/
 
 # TeX compile artifact
-*.pdf
+main.pdf
 *.aux
 *.bbl
 *.bcf
