@@ -1,0 +1,4 @@
+- [Exploring the Negative Effects of Gamification on Students: A PRISMA-Based Systematic Literature Review](https://ieeexplore.ieee.org/abstract/document/11431021) (Resued from Assignment 1)
+- [Students’ struggle with digital addiction: the truth of brain rot](https://link.springer.com/article/10.1186/s40359-025-03880-w)
+- [Gamification, Anxiety, & Motivation in Second Language Learners: A Qualitative Systematic Review](https://www.langedutech.com/letjournal/index.php/let/article/view/34/21)
+- [Advancing Gamification Research and Practice with Three Underexplored Ideas in Self-Determination Theory](https://link.springer.com/article/10.1007/s11528-024-00968-9) (Resued from Assignment 1)
