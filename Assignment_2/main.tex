@@ -122,11 +122,7 @@
 
 \begin{justify}
 
-% TODO (all members): (1) the problem/gap from Assignment 1,
-% (2) the proposed adaptive harm-aware gamification solution and quasi-experimental methodology,
-% (3) anticipated outcomes and significance. No citations in the abstract.
-
-[Abstract to be written: problem -- proposed adaptive, harm-aware gamification methodology -- anticipated outcomes.]
+Educational gamification now produces well-documented engagement and achievement gains alongside equally well-documented harms, including competitive leaderboard anxiety, undermining of intrinsic motivation, and superficial point-chasing, yet most platforms still deploy one fixed configuration to every learner with no mechanism to detect or constrain harm as it occurs. This proposal specifies an adaptive, harm-aware gamification controller that estimates a learner state of engagement and anxiety from platform interaction traces, computes a quantitative harm score against a defined threshold, and selects, retains, or downgrades gamification elements under that constraint, together with a semester-long quasi-experimental evaluation comparing the controller with static gamification and non-gamified baselines. The study is expected to yield a validated real-time learner-state model, an operational harm metric, and a set of element-configuration rules that preserve the moderate-to-large engagement and achievement effects reported in the literature while reducing anxiety and motivational degradation, thereby providing educators with an evidence-based and ethically accountable basis for deploying gamification at scale.
 
 \vspace{0.3cm}
 
@@ -175,10 +171,7 @@ real-time, harm-aware gamification matters now.]
 
 \section{Literature Review}
 
-% TODO: RECAP FROM ASSIGNMENT 1
-% Brief recap mapping the state of knowledge from Assignment 1 to establish the
-% theoretical foundation. Organise thematically around the three research questions
-% (NOT one paragraph per article). Critically identify the research gap.
+This proposal builds on the group's preceding critical research review of gamification in education, which synthesised recent peer-reviewed studies published between 2022 and 2025 spanning theoretical analysis of motivation, meta-analytic evidence synthesis, systematic documentation of negative effects, and classroom implementation in higher education, artificial intelligence education, web development, and vocational training. Rather than repeating that review article by article, the literature is organised below thematically around the three research questions of this proposal, so that the theoretical foundation, the documented harms, and the available evaluation evidence can be read directly against the design problem this proposal addresses.
 
 \subsection{Adaptive and Personalised Gamification (Link to RQ1)}
 
@@ -194,7 +187,7 @@ real-time, harm-aware gamification matters now.]
 
 \subsection{Gap Identification}
 
-[Context--Gap transition into the problem statement.]
+Three gaps follow from the preceding themes, and they map directly onto the research questions of this proposal. In relation to RQ1, the literature affirms that learners respond differently to identical elements and repeatedly recommends personalisation, yet it provides no real-time learner-state model and no validated feedback loop between an estimated state and element selection. In relation to RQ2, harms are well documented and attributable to particular design choices, yet no operational harm metric exists that a system could compute online and enforce as a constraint on deployment. In relation to RQ3, evidence of effectiveness is substantial but derives from short, non-randomised, single-condition comparisons that measure benefits without commensurate measurement of harms, leaving the central practical question of whether an adaptive, harm-aware configuration preserves attainment gains while reducing documented negative effects unanswered. The proposal addresses these three gaps jointly, because a harm metric is actionable only if learner state can be estimated in real time, and a state model is meaningful only if its output constrains element selection and is subsequently evaluated against both benefit and harm criteria. The problem statement below formalises this transition from context to gap to proposed solution.
 
 
 % =========================================
@@ -217,8 +210,7 @@ real-time, harm-aware gamification matters now.]
 
 \subsection{Solution}
 
-[The proposed system: real-time learner-state model driving adaptive selection of
-gamification elements under a harm constraint.]
+This proposal specifies an adaptive, harm-aware gamification controller that addresses the three deficiencies as a single closed loop. A learner-state model fuses engagement and anxiety signals from the platform interaction stream to produce a real-time state estimate; a harm function maps that estimate and the currently deployed elements to a scalar harm score, which is compared against a threshold $\tau$; and a selection policy proposes the next element configuration, downgrading competitive and reward-heavy elements whenever the harm score exceeds $\tau$ and otherwise selecting the configuration predicted to sustain engagement. Element selection is therefore constrained rather than merely optimised, so documented negative effects become an explicit design variable instead of an unmonitored side effect. The proposed system is to be evaluated through a quasi-experimental design over one full semester, comparing the adaptive harm-aware condition with a static gamification condition and a non-gamified baseline using balanced benefit-and-harm metrics, thereby producing the first evidence on whether real-time harm mitigation preserves the engagement and achievement gains reported in the literature while reducing anxiety and motivational undermining.
 
 
 % =========================================
@@ -229,15 +221,11 @@ gamification elements under a harm constraint.]
 
 \vspace{0.2cm}
 
-\textbf{RQ1:} How can learner state (engagement and anxiety) be modelled in real time to drive adaptive selection of gamification elements in an online learning platform?
-
-\vspace{0.2cm}
-
-\textbf{RQ2:} Which gamification design configurations minimise documented negative effects -- anxiety, motivational undermining, and superficial learning -- while preserving the engagement and achievement gains reported in the literature?
-
-\vspace{0.2cm}
-
-\textbf{RQ3:} Does an adaptive, harm-aware gamification system improve learning outcomes and motivational quality compared with static gamification and non-gamified baselines over a full semester?
+\begin{enumerate}
+    \item How can learner state (engagement and anxiety) be modelled in real time to drive adaptive selection of gamification elements in an online learning platform?
+    \item Which gamification design configurations minimise documented negative effects -- anxiety, motivational undermining, and superficial learning -- while preserving the engagement and achievement gains reported in the literature?
+    \item Does an adaptive, harm-aware gamification system improve learning outcomes and motivational quality compared with static gamification and non-gamified baselines over a full semester?
+\end{enumerate}
 
 
 % =========================================
