@@ -22,6 +22,13 @@
 \usepackage{ragged2e}       % Text alignment
 \usepackage{setspace}       % Line spacing
 \usepackage{hyperref}       % Clickable links and references
+\usepackage{array}          % Array for tables (column types for timeline/milestone tables)
+\usepackage{algorithm}      % Float environment for pseudocode/algorithm listing
+
+% Column types for proposal tables (wrapping, left/center aligned)
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\Centering\arraybackslash}p{#1}}
+
 % =========================================
 % APA REFERENCING
 % =========================================
@@ -42,7 +49,7 @@
     linkcolor=black,
     urlcolor=black,
     citecolor=black,
-    pdftitle={Critical Research Review Article}
+    pdftitle={Research Proposal}
 }
 
 % Table and figure caption formatting
@@ -70,11 +77,11 @@
 
 \begin{center}
 
-{\fontsize{18}{22}\selectfont\textbf{CRITICAL RESEARCH REVIEW ARTICLE}}
+{\fontsize{18}{22}\selectfont\textbf{RESEARCH PROPOSAL}}
 
 \vspace{0.5cm}
 
-{\fontsize{18}{22}\selectfont\textbf{[INSERT RESEARCH TOPIC]}}
+{\fontsize{18}{22}\selectfont\textbf{Adaptive Gamification with Real-Time Harm Mitigation for Personalised Learning: A Quasi-Experimental Proposal}}
 
 \vspace{1cm}
 
@@ -115,31 +122,15 @@
 
 \begin{justify}
 
-Write a concise summary of the entire review article. Write a concise summary of the entire review article. Write a concise summary of the entire review article. Write a concise summary of the entire review article.
+% TODO (all members): (1) the problem/gap from Assignment 1,
+% (2) the proposed adaptive harm-aware gamification solution and quasi-experimental methodology,
+% (3) anticipated outcomes and significance. No citations in the abstract.
 
-Write a concise summary of the entire review article.Write a concise summary of the entire review article.Write a concise summary of the entire review article.
-
-
-
-
-
-
-The abstract should include:
-
-\begin{itemize}
-    \item Background/context of the selected research topic
-    \item Purpose of the review
-    \item General approach used to select and analyse the research articles
-    \item Major findings from the reviewed literature
-    \item Key research gaps identified
-    \item Overall conclusion
-\end{itemize}
-
-\textbf{Recommended length: 150--250 words.}
+[Abstract to be written: problem -- proposed adaptive, harm-aware gamification methodology -- anticipated outcomes.]
 
 \vspace{0.3cm}
 
-\textbf{Keywords:} Keyword 1; Keyword 2; Keyword 3; Keyword 4; Keyword 5
+\textbf{Keywords:} Adaptive Gamification; Harm Mitigation; Learner Modelling; Quasi-Experimental Design; Student Engagement
 
 \end{justify}
 
@@ -170,506 +161,201 @@ The abstract should include:
 
 \section{Introduction}
 
-\subsection{Background}
+% Establish the broader CS field (adaptive/intelligent learning systems) and explain
+% why adaptive gamification with harm mitigation matters in the current context.
+% Include: background, relevance, brief roadmap of the proposal.
 
-Introduce the selected research topic and explain why it is important.
-
-This is how you add inline references in the document given that all your references have been copied in the references.bib.
-Recent studies have demonstrated the effectiveness of artificial
-intelligence techniques \parencite{smith2024}.
-
-Follow this example to include more than one references.Several studies have investigated these approaches
-\parencite{smith2024,lee2023,ahmad2022}.
-
-\vspace{0.5cm}
-Discuss:
-
-\begin{itemize}
-    \item What is the research topic?
-    \item What problem does it address?
-    \item Why is the problem important?
-    \item Where is the topic currently being applied?
-    \item Why is there a need to study/review this topic?
-\end{itemize}
-
-Students should support important statements with appropriate research references.
-
-
-\subsection{Problem Statement}
-
-Clearly describe the problem or issue that motivates this literature review.
-
-\vspace{0.5cm}
-Explain:
-
-\begin{itemize}
-    \item What is currently known?
-    \item What problems exist?
-    \item What limitations exist in current approaches?
-    \item Why is a review of existing research necessary?
-\end{itemize}
-
-
-\subsection{Objectives of the Review}
-
-State the objectives of the review article.
-
-\vspace{0.5cm}
-For example:
-
-\begin{enumerate}
-    \item To review existing research related to [topic].
-    \item To compare the approaches used by different researchers.
-    \item To analyse the findings and limitations of existing studies.
-    \item To identify research gaps and potential future research directions.
-\end{enumerate}
-
-
-\subsection{Research Questions}
-
-Develop 2--4 research questions that guide the review.
-
-\vspace{0.2cm}
-
-For Example:
-
-
-\textbf{RQ1:} What approaches have been used to address [research problem]?
-
-\vspace{0.2cm}
-
-\textbf{RQ2:} What are the major findings reported in existing studies?
-
-\vspace{0.2cm}
-
-\textbf{RQ3:} What are the limitations of the existing approaches?
-
-\vspace{0.2cm}
-
-\textbf{RQ4:} What research gaps and future opportunities can be identified?
+[Introduction: broader context of intelligent adaptive learning systems and why
+real-time, harm-aware gamification matters now.]
 
 
 % =========================================
-% 2. REVIEW METHODOLOGY
-% =========================================
-
-\section{Review Methodology}
-
-Explain how the group conducted the literature review.
-
-
-\subsection{Literature Search Strategy}
-
-Describe:
-
-\begin{itemize}
-    \item Databases/search engines used
-    \item Search keywords
-    \item Search strings
-    \item Publication period
-    \item Type of publications considered\newline
-\end{itemize}
-
-
-Example databases:
-
-\begin{itemize}
-    \item Scopus
-    \item Web of Science
-    \item IEEE Xplore
-    \item ScienceDirect
-    \item SpringerLink
-    \item ACM Digital Library
-    \item Google Scholar
-\end{itemize}
-
-
-\subsection{Inclusion and Exclusion Criteria}
-
-Describe the criteria used to determine which research articles were included in or excluded from the review.
-
-\textbf{Inclusion criteria may include:}
-
-\begin{itemize}
-    \item Articles directly related to the selected research topic
-    \item Peer-reviewed research articles
-    \item Articles published within the selected publication period
-    \item Articles indexed in the selected academic databases
-    \item Articles available in full text
-\end{itemize}
-
-\textbf{Exclusion criteria may include:}
-
-\begin{itemize}
-    \item Articles outside the scope of the research topic
-    \item Duplicate publications
-    \item Non-peer-reviewed publications
-    \item Articles outside the selected publication period
-    \item Articles without sufficient methodological or research information
-\end{itemize}
-
-\end{justify}
-
-% =========================================
-% SAMPLE TABLE
-% =========================================
-
-\begin{table}[H]
-\caption{Inclusion and exclusion criteria used for the literature review}
-\label{tab:inclusion-exclusion}
-
-\fontsize{10pt}{12pt}\selectfont
-
-\begin{tabular}{|p{4cm}|p{5cm}|p{5cm}|}
-\hline
-\centering\textbf{Criteria} &
-\centering\textbf{Inclusion} &
-\centering\textbf{Exclusion}
-\tabularnewline
-\hline
-
-\centering Publication type &
-\centering Peer-reviewed research articles &
-\centering Non-peer-reviewed articles
-\tabularnewline
-\hline
-
-\centering Publication period &
-\centering [e.g., 2021--2026] &
-\centering Articles outside selected period
-\tabularnewline
-\hline
-
-\centering Language &
-\centering English &
-\centering Other languages
-\tabularnewline
-\hline
-
-\centering Topic &
-\centering Directly related to selected topic &
-\centering Not directly related
-\tabularnewline
-\hline
-
-\centering Full text &
-\centering Full-text available &
-\centering Full text unavailable
-\tabularnewline
-\hline
-
-\end{tabular}
-
-\end{table}
-
-This is a sample table. Tables should be placed in the main text near to the first time they are cited, with the caption on top and left aligned. The font of the table caption is size 9 and the content in the table is size 10.
-
-
-
-% =========================================
-% SAMPLE FIGURE
-% =========================================
-
-\begin{figure}[H]
-    \centering
-
-    \fbox{%
-        \includegraphics[width=0.80\textwidth]{figures/Prisma.jpg}%
-    }
-
-    \caption{PRISMA flow diagram of the study selection process.}
-    \label{fig:prisma}
-\end{figure}
-
-
-This is a figure. All figures should be centred with figure caption following the sequence Figure 1, Figure 2, and so on. The caption should also be centred. The caption for figures should be size 9.
-
-
-
-\subsection{Article Selection}
-
-Each student must review \textbf{at least 3 research articles}.
-
-Therefore:
-
-\begin{itemize}
-    \item \textbf{Minimum articles per student = 3}
-    \item \textbf{Minimum articles per group = 12}
-\end{itemize}
-
-The group may use more than 12 articles if necessary.
-
-Explain how the final articles were selected for the review.
-
-
-
-
-% =========================================
-% 3. LITERATURE REVIEW
+% 2. LITERATURE REVIEW
 % =========================================
 
 \section{Literature Review}
 
-This is the \textbf{main section of the review article}.
+% TODO: RECAP FROM ASSIGNMENT 1
+% Brief recap mapping the state of knowledge from Assignment 1 to establish the
+% theoretical foundation. Organise thematically around the three research questions
+% (NOT one paragraph per article). Critically identify the research gap.
 
-Do \textbf{NOT} simply write:
+\subsection{Adaptive and Personalised Gamification (Link to RQ1)}
 
-\begin{itemize}
-    \item Article 1 says \ldots
-    \item Article 2 says \ldots
-    \item Article 3 says \ldots
-\end{itemize}
+[Thematic synthesis of adaptive/learner-model gamification studies.]
 
-Instead, organise the literature according to \textbf{themes, methods, technologies, problems, findings, or research approaches}.
+\subsection{Documented Negative Effects and Harm-Mitigating Design (Link to RQ2)}
 
+[Thematic synthesis of negative-effect and anti-addiction/harm-mitigation studies.]
 
-\subsection{Theme / Area 1: [Insert Theme]}
+\subsection{Evaluation Designs and Evidence for Gamification Effectiveness (Link to RQ3)}
 
-Discuss research articles related to the first major theme.
+[Thematic synthesis of experimental/quasi-experimental and meta-analytic evidence.]
 
-Compare the studies in terms of:
+\subsection{Gap Identification}
 
-\begin{itemize}
-    \item Research objectives
-    \item Methodology
-    \item Dataset/sample
-    \item Tools/technologies
-    \item Experimental setup
-    \item Results
-    \item Advantages
-    \item Limitations
-\end{itemize}
-
-The discussion should compare multiple studies rather than describe each article independently.
-
-
-\subsection{Theme / Area 2: [Insert Theme]}
-
-Discuss the second major theme.
-
-Compare and synthesise findings from different researchers.
-
-Identify:
-
-\begin{itemize}
-    \item Similarities
-    \item Differences
-    \item Strengths
-    \item Weaknesses
-    \item Contradictory findings
-    \item Trends
-\end{itemize}
-
-
-\subsection{Theme / Area 3: [Insert Theme]}
-
-Discuss the third major theme.
-
-Use evidence from multiple research articles.
-
-
-\subsection{Theme / Area 4: [Insert Theme, if applicable]}
-
-Add additional themes where appropriate.
-
-\textbf{Note:} The number of themes should depend on the selected research topic. Do not create unnecessary sections simply to increase the number of pages.
+[Context--Gap transition into the problem statement.]
 
 
 % =========================================
-% 4. COMPARATIVE ANALYSIS
+% 3. PROBLEM STATEMENT
 % =========================================
 
-\section{Comparative Analysis of Existing Studies}
+\section{Problem Statement}
 
-Provide a systematic comparison of the reviewed research articles.
+% TODO: CONTEXT - GAP - SOLUTION
+% Use the Context--Gap--Solution method. Justify with data/gaps from the Assignment 1
+% literature review.
 
-A table such as the following is recommended.
+\subsection{Context}
 
+[What is currently known about adaptive gamification and its negative effects.]
 
-% =========================================
-% COMPARATIVE ANALYSIS TABLE
-% =========================================
+\subsection{Gap}
 
-\begin{table}[H]
+[The specific technical gap: no closed-loop, harm-aware adaptation with a quantitative harm metric.]
 
-\caption{Comparative analysis of the reviewed research studies}
-\label{tab:comparative-analysis}
+\subsection{Solution}
 
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-
-\textbf{No.} &
-\textbf{Author \& Year} &
-\textbf{Research Objective} &
-\textbf{Method/Technique} &
-\textbf{Dataset/Sample} &
-\textbf{Key Findings} &
-\textbf{Limitations}
-\\
-\hline
-
-1 &
-[Author, Year] &
-[Research objective] &
-[Method/Technique] &
-[Dataset/Sample] &
-[Key findings] &
-[Limitations]
-\\
-\hline
-
-2 &
-[Author, Year] &
-[Research objective] &
-[Method/Technique] &
-[Dataset/Sample] &
-[Key findings] &
-[Limitations]
-\\
-\hline
-
-3 &
-[Author, Year] &
-[Research objective] &
-[Method/Technique] &
-[Dataset/Sample] &
-[Key findings] &
-[Limitations]
-\\
-\hline
-
-4 &
-[Author, Year] &
-[Research objective] &
-[Method/Technique] &
-[Dataset/Sample] &
-[Key findings] &
-[Limitations]
-\\
-\hline
-
-\end{tabular}%
-}
-
-\end{table}
-
-% =========================================
-% 5. SYNTHESIS OF FINDINGS
-% =========================================
-
-\section{Synthesis of Findings}
-
-This section is particularly important.
-
-The group should answer:
-
-
-\subsection{What Do the Studies Agree On?}
-
-Identify findings or conclusions that are consistently reported across multiple studies.
-
-
-\subsection{What Do the Studies Disagree On?}
-
-Identify conflicting findings, different results, or different conclusions.
-
-
-\subsection{Which Approaches Appear to Be Most Effective?}
-
-Compare the approaches and explain why certain methods appear to perform better.
-
-
-\subsection{What Trends Can Be Observed?}
-
-Identify emerging trends in:
-
-\begin{itemize}
-    \item Technologies
-    \item Methodologies
-    \item Datasets
-    \item Algorithms
-    \item Applications
-    \item Research directions
-\end{itemize}
-
-The discussion should be based on evidence from the reviewed articles.
+[The proposed system: real-time learner-state model driving adaptive selection of
+gamification elements under a harm constraint.]
 
 
 % =========================================
-% 6. RESEARCH GAPS
+% 4. RESEARCH QUESTIONS
 % =========================================
 
-\section{Research Gaps}
+\section{Research Questions}
 
-Identify gaps that remain in the existing literature.
+\vspace{0.2cm}
 
-Possible research gaps include:
+\textbf{RQ1:} How can learner state (engagement and anxiety) be modelled in real time to drive adaptive selection of gamification elements in an online learning platform?
 
-\begin{itemize}
-    \item Lack of suitable datasets
-    \item Small sample sizes
-    \item Limited geographical coverage
-    \item Poor generalisation
-    \item Limited experimental validation
-    \item Lack of comparison between methods
-    \item High computational requirements
-    \item Lack of real-world testing
-    \item Security/privacy concerns
-    \item Lack of explainability
-    \item Outdated technologies
-    \item Limited integration with other technologies
-\end{itemize}
+\vspace{0.2cm}
 
-For each identified gap, provide evidence from the reviewed literature.
+\textbf{RQ2:} Which gamification design configurations minimise documented negative effects -- anxiety, motivational undermining, and superficial learning -- while preserving the engagement and achievement gains reported in the literature?
+
+\vspace{0.2cm}
+
+\textbf{RQ3:} Does an adaptive, harm-aware gamification system improve learning outcomes and motivational quality compared with static gamification and non-gamified baselines over a full semester?
 
 
 % =========================================
-% 7. FUTURE RESEARCH DIRECTIONS
+% 5. RESEARCH OBJECTIVES
 % =========================================
 
-\section{Future Research Directions}
-
-Based on the identified research gaps, propose potential directions for future research.
-
-For example:
+\section{Research Objectives}
 
 \begin{enumerate}
-    \item Development of improved algorithms
-    \item Use of larger datasets
-    \item Integration of emerging technologies
-    \item Development of real-time systems
-    \item Improved accuracy/performance
-    \item Cross-domain applications
-    \item Improved security and privacy
-    \item Explainable AI approaches
-    \item Real-world deployment and validation
+    \item \textbf{RO1 (links to RQ1):} [SMART objective -- e.g., design and specify a real-time learner-state
+    model that fuses engagement and anxiety signals and selects gamification elements adaptively.]
+    \item \textbf{RO2 (links to RQ2):} [SMART objective -- e.g., define a quantitative harm metric and a set of
+    element-configuration rules that constrain deployment to minimise documented negative effects.]
+    \item \textbf{RO3 (links to RQ3):} [SMART objective -- e.g., evaluate the adaptive harm-aware system against
+    static gamification and non-gamified baselines over one semester using defined benefit-and-harm metrics.]
 \end{enumerate}
 
-The proposed directions should logically follow from the research gaps identified in Section~\ref{sec:research-gaps}.
+
+% =========================================
+% 6. RESEARCH METHODOLOGY
+% =========================================
+
+\section{Research Methodology}
+
+\subsection{Research Design and Approach}
+
+% Choose: Experimental, Quasi-experimental, Empirical, or Comparative -- with justification.
+% Include a pipeline overview (conceptual flow of data -> processing -> output).
+
+[Justified quasi-experimental design; high-level pipeline described in text.]
+
+\subsection{Technical Approach}
+
+% Step-by-step breakdown of the proposed algorithm/model/framework.
+% Model selection justification, algorithmic innovation (novel vs. repurposed),
+% optimisation strategy. MUST include pseudocode or a high-level architecture
+% description compatible with LaTeX.
+
+\begin{algorithm}[H]
+\caption{Adaptive harm-aware gamification controller (pseudocode outline)}
+\label{alg:controller}
+\begin{flushleft}
+\fontsize{10pt}{12pt}\selectfont
+\textbf{Input:} learner interaction stream $\mathbf{x}_t$, harm threshold $\tau$ \\
+\textbf{Output:} gamification element configuration $e_t$
+\end{flushleft}
+\hrulefill
+\vspace{0.2cm}
+\begin{enumerate}
+    \item Estimate learner state $\hat{s}_t = f_\theta(\mathbf{x}_t)$   % engagement + anxiety model
+    \item Compute harm score $h(\hat{s}_t, e_{t-1})$
+    \item \textbf{if} $h > \tau$ \textbf{then} $e_t \leftarrow$ downgrade competitive elements
+    \item \textbf{else} $e_t \leftarrow \pi_\theta(\hat{s}_t)$   % adaptive element selection policy
+    \item Observe outcome; update $\theta$   % optimisation / learning step
+\end{enumerate}
+\hrulefill
+\end{algorithm}
+
+\subsection{Data and Tools}
+
+% Datasets (provenance: public benchmark vs. platform-collected), key tools
+% (e.g., Python, scikit-learn/PyTorch, Moodle/LMS logs), justification of size/noise/features,
+% ethical considerations (human subjects, consent, privacy, bias mitigation).
+
+[Dataset sources, platform instrumentation, software tools, and ethical considerations.]
+
+\subsection{Evaluation Criteria}
+
+% Clear measurable metrics (learning gain, engagement rate, motivational-quality score,
+% harm metric values), experimental setup (hardware/software), baselines and ablation
+% (static gamification, non-gamified control; element-level ablation).
+
+[Metrics, baselines, ablation plan, and experimental setup.]
 
 
 % =========================================
-% 8. DISCUSSION
+% 7. EXPECTED OUTCOMES
 % =========================================
 
-\section{Discussion}
+\section{Expected Outcomes}
 
-Provide an overall critical discussion of the literature.
+% Anticipated findings, significance to the field, deliverables.
+% Must be specific and measurable.
 
-The discussion should answer:
+[Anticipated findings, contributions, and deliverables.]
 
-\begin{itemize}
-    \item What has the research community achieved so far?
-    \item Which approaches are most promising?
-    \item What are the major challenges?
-    \item Are the current approaches sufficient?
-    \item What limitations remain?
-    \item How has the research area evolved?
-    \item What important issues remain unresolved?
-\end{itemize}
 
-This section should demonstrate \textbf{critical thinking}, not merely summarisation.
+% =========================================
+% 8. PROJECT TIMELINE
+% =========================================
+
+\section{Project Timeline}
+
+% Phased structure with critical milestones and checkpoints (Gantt-style table).
+
+\begin{table}[H]
+\caption{Phased project timeline with milestones}
+\label{tab:timeline}
+\fontsize{10pt}{12pt}\selectfont
+\begin{tabular}{|L{3.2cm}|L{4.5cm}|L{3cm}|L{3cm}|}
+\hline
+\centering\textbf{Phase} & \centering\textbf{Activities} & \centering\textbf{Duration} & \centering\textbf{Milestone}
+\tabularnewline
+\hline
+1. Requirement \& design & Gap analysis, system specification & Days 1--2 & Design document
+\tabularnewline
+\hline
+2. Modelling \& prototyping & Learner-state model, controller prototype & Days 3--6 & Working prototype
+\tabularnewline
+\hline
+3. Pilot \& refinement & Pilot run, metric calibration & Days 7--8 & Pilot report
+\tabularnewline
+\hline
+4. Full evaluation & Baselines, ablation, analysis & Days 9--12 & Results \& write-up
+\tabularnewline
+\hline
+\end{tabular}
+\end{table}
 
 
 % =========================================
@@ -678,24 +364,17 @@ This section should demonstrate \textbf{critical thinking}, not merely summarisa
 
 \section{Conclusion}
 
-Summarise the major findings of the review.
+\subsection{Summary of Contributions}
 
-The conclusion should:
+[Recap the proposed solution and its expected contribution -- no new information.]
 
-\begin{itemize}
-    \item Restate the purpose of the review
-    \item Summarise the major findings
-    \item Highlight important research gaps
-    \item State the overall conclusion
-    \item Briefly indicate future research opportunities
-\end{itemize}
+\subsection{Final Remarks}
 
-Do not introduce completely new information or references in the conclusion.
+[The take-home message: harm-aware adaptive gamification as a responsible next step
+for technology-enhanced learning.]
 
 
-
-
-
+\end{justify}
 
 % =========================================
 % REFERENCES
@@ -745,7 +424,8 @@ Each student should complete the following table for their
 
 \fontsize{10pt}{12pt}\selectfont
 
-\begin{tabular}{|p{1.5cm}|p{2.1cm}|p{1.8cm}|p{2.2cm}|p{2.1cm}|p{2.2cm}|p{2.0cm}|p{2.0cm}|}
+\noindent\resizebox{\textwidth}{!}{%
+\begin{tabular}{|L{2.5cm}|L{2.5cm}|L{2cm}|L{2.5cm}|L{2.5cm}|L{2.5cm}|L{2.5cm}|L{2.5cm}|}
 \hline
 
 \centering\textbf{Article} &
@@ -775,7 +455,8 @@ Each student should complete the following table for their
 \tabularnewline
 \hline
 
-\end{tabular}
+\end{tabular}%
+}
 
 \end{table}
 
