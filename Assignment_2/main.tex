@@ -20,11 +20,12 @@
 \usepackage{caption}        % Caption customization
 \usepackage{hyperref}       % Hyperlinks and references
 \usepackage{ragged2e}       % Text alignment
-\usepackage{setspace}       % Line spacing
 \usepackage{array}          % Array for tables (column types for timeline/milestone tables)
 \usepackage{longtable}
 \usepackage{algorithm}      % Float environment for pseudocode/algorithm listing
 \usepackage{anyfontsize}    % Scalable font sizes without CM size substitution warnings
+
+\emergencystretch=3em
 
 % Column types for proposal tables (wrapping, left/center aligned)
 \newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
@@ -155,10 +156,6 @@ Educational gamification now produces well-documented engagement and achievement
 
 \section{Introduction}
 
-% Establish the broader CS field (adaptive/intelligent learning systems) and explain
-% why adaptive gamification with harm mitigation matters in the current context.
-% Include: background, relevance, brief roadmap of the proposal.
-
 The integration of artificial intelligence into education has shifted learning platforms from
 static content repositories toward intelligent, adaptive systems that model the learner and
 personalise what is presented next \parencite{vistorte2024integrating,naseer2025game}. Within
@@ -202,50 +199,55 @@ This proposal builds on the group's preceding critical research review of gamifi
 
 \subsection{Adaptive and Personalised Gamification (Link to \rqlink{1})}
 
-Current adaptive and personalized learner frameworks such as the Hexad model,
-and artificial intelligence to tailor the content and mechanics according to 
-user preferences \parencite{zourmpakis2023adaptive,vistorte2024integrating}. Learner-state
-modeling architectures routinely update player profiles by analyzing their 
-interactions, ranging from in-app feedback and questionnares to multimodal signals
-like EEG data, facial expressions and speech \parencite{zourmpakis2023adaptive,vistorte2024integrating}.
-In order to process these signals, systems employ advanced computing techniques and deep 
-learning models to predict affective states and cognitive needs \parencite{zourmpakis2023adaptive}
-However, while many tutoring systems successfully adjust the content to maximize engagement,
-certain game elements such as badges, currency, and forced cooperation have been shown to 
-inadverdantly induce significant learner anxiety and stress \parencite{zourmpakis2023adaptive,vistorte2024integrating}.
-Consequently, a critifal focus for future research is the developent of robust, closed-loop real-time 
-adaptation mechanisms capable of utilizing harm-detection algorithms to lessen the mechanics before 
-they negatively impact the user \parencite{zourmpakis2023adaptive,vistorte2024integrating, farhan2023machine}. Experimental
-evaluations of these systems typically utilize platforms like Unity or custom web applications,
-relying on quasi-experimental pre-/post-test comparisons and continuous engagement logs to measure
-the efficacy of dynamic adaptation \parencite{zourmpakis2023adaptive, shabadurai2025reinforcement, naseer2025game}.
+Current adaptive and personalised learner frameworks, such as the Hexad model, use
+artificial intelligence to tailor content and mechanics to individual user preferences
+\parencite{zourmpakis2023adaptive,vistorte2024integrating}. Learner-state
+modelling architectures routinely update player profiles by analysing their
+interactions, ranging from in-app feedback and questionnaires to multimodal signals
+such as EEG data, facial expressions and speech
+\parencite{zourmpakis2023adaptive,vistorte2024integrating}. To process these signals,
+systems employ affective computing techniques and deep learning models to predict
+affective states and cognitive needs
+\parencite{vistorte2024integrating,zourmpakis2023adaptive}. However, while adaptive
+systems successfully adjust content to maximise engagement, certain game elements such
+as badges, currency and forced cooperation have been shown to inadvertently induce
+substantial learner anxiety and stress \parencite{zourmpakis2023adaptive}.
+Consequently, a critical focus for future research is the development of robust,
+closed-loop real-time adaptation mechanisms capable of using harm-detection algorithms
+to downgrade harmful mechanics before they negatively affect the user
+\parencite{zourmpakis2023adaptive,farhan2023machine}. Experimental evaluations of
+these systems typically use platforms such as Unity or custom web applications,
+relying on quasi-experimental pre-/post-test comparisons and continuous engagement
+logs to measure the efficacy of dynamic adaptation
+\parencite{zourmpakis2023adaptive,shabadurai2025reinforcement,naseer2025game}.
 
 
 \subsection{Documented Negative Effects and Harm-Mitigating Design (Link to \rqlink{2})}
 
-A systematic review published under PRISMA 2020 guidelines screened 206 records across seven databases and retained 20 studies, from which it derived four recurring categories of harm: performance pressure and psychological strain, superficial learning effects, motivational-engagement decline, and psychological distress and emotional strain \parencite{nugroho2025negative}. The same review showed that harm is element-specific and conditional: leaderboards demotivate learners in low ranks, excessive challenges induce frustration, and feedback that lacks direction produces anxiety, whereas harm is minimised when elements align with learning objectives and learner characteristics \parencite{nugroho2025negative}. \textcite{edwards2022anxiety} reached a compatible conclusion from a separate corpus: across 40 studies, anxiety was examined in only 10, and competitive elements failed to reduce anxiety in half of the studies that used them, while quests, narratives and serious games were consistently associated with lower anxiety. From a theoretical standpoint, \textcite{gao2024sdt} argued that self-determination theory (SDT) has been applied superficially in gamification research, and that the same element carries different \textbf{functional significance} for different learners, so fixed configurations cannot be assumed to be uniformly beneficial. Extending the concern beyond motivation, \textcite{gul2026brainrot} documented how reward- and notification-driven design contributes to compulsive digital engagement among 113 higher-education students, manifested as attention deficits, procrastination and distorted time perception. Taken together, the literature documents \textbf{what} harms occur and \textbf{which} elements trigger them, but it does not provide a quantity that a running system can evaluate, nor evidence that the proposed mitigations work when applied dynamically.
+A systematic review published under the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) 2020 guidelines screened 206 records across seven databases and retained 20 studies, from which it derived four recurring categories of harm: performance pressure and psychological strain, superficial learning effects, motivational-engagement decline, and psychological distress and emotional strain \parencite{nugroho2025negative}. The same review showed that harm is element-specific and conditional: leaderboards demotivate learners in low ranks, excessive challenges induce frustration, and feedback that lacks direction produces anxiety, whereas harm is minimised when elements align with learning objectives and learner characteristics \parencite{nugroho2025negative}. \textcite{edwards2022anxiety} reached a compatible conclusion from a separate corpus: across 40 studies, anxiety was examined in only 10, and competitive elements failed to reduce anxiety in half of the studies that used them, while quests, narratives and serious games were consistently associated with lower anxiety. From a theoretical standpoint, \textcite{gao2024sdt} argued that self-determination theory (SDT) has been applied superficially in gamification research, and that the same element carries different \textbf{functional significance} for different learners, so fixed configurations cannot be assumed to be uniformly beneficial. Extending the concern beyond motivation, \textcite{gul2026brainrot} documented how reward- and notification-driven design contributes to compulsive digital engagement among 113 higher-education students, manifested as attention deficits, procrastination and distorted time perception. Taken together, the literature documents \textbf{what} harms occur and \textbf{which} elements trigger them, but it does not provide a quantity that a running system can evaluate, nor evidence that the proposed mitigations work when applied dynamically.
 
 \subsection{Evaluation Designs and Evidence for Gamification Effectiveness (Link to \rqlink{3})}
+\label{sec:lit-eval}
 
 Evaluation of educational gamification is dominated by quasi-experimental and controlled
 comparisons, and the reported effects are consistently positive but bounded in three ways that
-matter for this proposal. Quasi-experimental comparisons report significant gains: Zhang et al.
+matter for this proposal. Quasi-experimental comparisons report significant gains: \textcite{zhang2026gamification}
 compared gamified with traditional instruction over four weeks with 136 university students and
 found experimental-group advantages on learning performance, classroom participation, interest,
-motivation and self-efficacy \parencite{zhang2026gamification}, while Ojonuba et al. compared
+motivation and self-efficacy , while \textcite{ojonuba2025web} compared
 gamified and non-gamified web-development systems with 60 students and obtained higher performance
 in the gamified arm but no significant difference in engagement or motivation, a pattern they
-attributed partly to novelty effects and individual differences \parencite{ojonuba2025web}.
-Longer evaluations exist but remain single-condition: Durmaz et al. varied leaderboard and point
+attributed partly to novelty effects and individual differences .
+Longer evaluations exist but remain single-condition: \textcite{durmaz2022gamification} varied leaderboard and point
 designs over a four-month course with 392 students while holding other elements constant, and
 reported lower fear of failure, fewer performance-avoidance goals and better grades in the
-redesigned condition \parencite{durmaz2022gamification}. Rigorous designs are available too, as in
-the cluster-randomised trial of López-Fernández et al. with 217 computer science students, where
+redesigned condition . Rigorous designs are available too, as in
+the cluster-randomised trial of \textcite{lopezfernandez2024lego} with 217 computer science students, where
 an active-learning activity significantly outperformed a lecture control on knowledge and
-motivation \parencite{lopezfernandez2024lego}. At the synthesis level, Lu et al. meta-analysed 22
+motivation . At the synthesis level, \textcite{lu2024ai} meta-analysed 22
 empirical studies and reported an overall random-effects estimate of Hedges' $g=0.740$, with
 $g=0.841$ for knowledge achievement, $g=0.743$ for motivation and $g=0.367$ for thinking skills,
-and found that effects shrink as the experimental period lengthens \parencite{lu2024ai}.
+and found that effects shrink as the experimental period lengthens .
 
 Taken together, this evidence base supports the value of gamification but leaves \rqlink{3}
 unanswered. Interventions are short and effects decline with duration \parencite{lu2024ai,ming2025gamification};
@@ -268,40 +270,64 @@ Three gaps follow from the preceding themes, and they map directly onto the rese
 
 \subsection{Context}
 
-Existing studies show that the effectiveness of educational gamification has been evaluated using several research designs, with quasi-experimental and controlled comparison approaches being commonly applied. For example, Zhang et al. conducted a quasi-experimental study involving 136 university students and compared gamified instruction with traditional teaching over a four-week intervention. Their evaluation considered not only learning performance, but also classroom participation, learning interest, motivation, and self-efficacy \parencite{zhang2026gamification}. This indicates that the effectiveness of gamification should not be judged based on academic scores alone, as motivational and behavioural outcomes are also important when evaluating the overall learning experience.
-A similar comparison was carried out by Ojonuba et al., who evaluated a gamified web-based learning system against a non-gamified system using the same course content. The study assessed engagement, motivation, and performance, and found that the gamified group achieved better learning performance, although the differences in engagement and motivation were not statistically significant \parencite{ojonuba2025web}. Such findings show that gamification may improve certain learning outcomes without necessarily producing the same level of improvement across every measured dimension. Therefore, using a clear baseline and multiple evaluation metrics is important when determining whether a gamified system is genuinely effective.
-The duration of the evaluation is another important factor. Durmaz et al. examined the use of gamification during a four-month university course involving 392 students. The study compared different designs of leaderboard and point mechanisms while keeping other elements, such as badges and activities, unchanged. In addition to course performance, the researchers examined motivational factors such as fear of failure and achievement-goal orientation \parencite{durmaz2022gamification}. This provides evidence that longer evaluations can capture psychological and motivational effects that may not be visible in short-term experiments.
-Evidence from broader game-based educational research also suggests that the measured effectiveness can vary according to the type of outcome. Lu et al. analysed 22 empirical studies and reported an overall random-effects estimate of Hedges' $g=0.740$. The reported effects differed across learning outcomes, with $g=0.841$ for knowledge achievement, $g=0.743$ for motivation, and $g=0.367$ for thinking skills \parencite{lu2024ai}. These differences further suggest that a single performance measure is insufficient for evaluating the overall effectiveness of a gamified learning intervention.
-However, many evaluations are still relatively short. Ming and Choo examined gamification activities conducted over approximately three teaching weeks and measured engagement through YouTube learning analytics together with questionnaire-based measures of motivation and confidence. The authors explicitly identified the lack of longitudinal assessment as a limitation and suggested that future studies should investigate the long-term effects of gamification on student engagement and learning outcomes \parencite{ming2025gamification}. Taken together, the existing literature demonstrates that controlled comparisons, multidimensional outcome measures, and effect-size analysis are useful for evaluating gamification, but it also shows the need for longer-term evaluation that considers both learning benefits and possible motivational or psychological effects.
+Educational gamification has become a standard feature of digital learning: platforms
+such as Kahoot! and Quizizz routinely deploy points, challenges and leaderboards to
+raise motivation and participation, which creates an implicit expectation that
+gamification is universally beneficial \parencite{nugroho2025negative}. Its
+effectiveness has been evaluated mainly through quasi-experimental and controlled
+comparisons, as summarised in Section~\ref{sec:lit-eval}. Gamified conditions
+generally outperform controls on learning performance and motivation, but the
+reported advantages are bounded by short interventions of three to four teaching
+weeks, single fixed configurations, and outcome sets that omit anxiety and other
+harms \parencite{zhang2026gamification,ojonuba2025web,ming2025gamification}. Even the
+longer evaluations remain single-condition: a four-month course study varied
+leaderboard and point designs while holding other elements constant
+\parencite{durmaz2022gamification}, and meta-analytic synthesis of 22 studies gives an
+overall random-effects estimate of Hedges' $g=0.740$ that declines as the
+experimental period lengthens \parencite{lu2024ai}.
 
-Gamification has become a standard feature of digital learning: platforms such as Kahoot! and Quizizz routinely deploy points, challenges and leaderboards to raise motivation and participation, creating an implicit expectation that gamification is universally beneficial \parencite{nugroho2025negative}. The benefit evidence is real but not uniform, and the counter-evidence is now systematic rather than anecdotal. \textcite{nugroho2025negative} classified the negative effects of ten common game elements into four recurring categories -- performance pressure and psychological strain, superficial learning effects, motivational-engagement decline, and psychological distress and emotional strain -- and reported that the effectiveness of points was experienced unevenly: 10.1\% of respondents judged points not at all helpful, while only 13.1\% judged them beneficial. Independent evidence converges on the same pattern: in a qualitative systematic review of 40 gamification studies, \textcite{edwards2022anxiety} found that anxiety -- a central learner affect -- was examined in only 10 studies, and that challenge- and competition-based elements failed to reduce anxiety in 50\% of the studies employing them. \textcite{gul2026brainrot} extended this concern beyond motivation to compulsive, notification-driven engagement among 113 higher-education students, and recommended usage regulation and screen-time monitoring as preventive measures. SDT, the dominant explanatory framework for gamification, has been applied superficially, so the mechanisms by which a given element helps or harms a given learner remain under-specified \parencite{gao2024sdt}.
+The benefit evidence must be read against equally systematic counter-evidence.
+Peer-reviewed reviews published between 2022 and 2025 classify the negative effects
+of common game elements into performance pressure and psychological strain,
+superficial learning, motivational decline and psychological distress
+\parencite{nugroho2025negative}; across 40 studies of gamification in language
+learning, anxiety was examined in only 10, and competitive elements failed to reduce
+anxiety in half of the studies that used them \parencite{edwards2022anxiety}.
+Reward- and notification-driven design further contributes to compulsive engagement
+among higher-education students, manifested as attention deficits, procrastination and
+distorted time perception \parencite{gul2026brainrot}, while self-determination theory
+-- the dominant explanatory framework -- has been applied superficially, so the same
+element carries a different functional significance for different learners
+\parencite{gao2024sdt}. Because harm is therefore conditional on the learner rather
+than fixed in the element, a single configuration applied to every learner cannot be
+assumed uniformly beneficial.
 
-Across digital education and corporate training environments, traditional instructional methods consistently struggle with high 
-attrition, user isolation, and a lack ofsustained motivation \parencite{naseer2025game,shabadurai2025reinforcement}. While gamification
-has emerged as a popular motivational strategy to combat this, conventional "one-size-fits-all" models rely on static, predefined
-rule systems and uniform reward structures that fail to adapt to evolving individual preferences or behaviours, ultimately losing user
-interest over time \parencite{farhan2023machine,shabadurai2025reinforcement,zourmpakis2023adaptive}. Furthermore, because effective
-learning and engagement are deeply tied to dynamic emotional and cognitive states, rigid platforms often fail to appropriately 
-address user frustration or disengagement as it occurs \parencite{naseer2025game,vistorte2024integrating}. Although recent advancements
-in artificial intelligence, machine learning, and affective computing offer the capability to assess user emotions in real-time
-and personalize game mechanics, these integrated adaptive systems remain underexplored and introduce complex challenges regarding 
-data privacy, algorithmic bias, and accurate behavior prediction \parencite{farhan2023machine,vistorte2024integrating}. Consequently,
-there is a critical need to develop and validate robust, AI-driven adaptive gamification frameworks that can dynamically tailor both 
-instructional content and motivational strategies to individual users while successfully navigating these ethical and technical constraints
+Despite this evidence, conventional one-size-fits-all models rely on predefined rule
+systems and uniform reward structures that fail to adapt to evolving individual
+preferences or behaviours, and rigid platforms cannot address user frustration or
+disengagement as it occurs
+\parencite{farhan2023machine,shabadurai2025reinforcement,zourmpakis2023adaptive,naseer2025game}.
+Advances in artificial intelligence and affective computing can assess user emotions
+in real time and personalise game mechanics
+\parencite{vistorte2024integrating,farhan2023machine}; however, integrated adaptive
+systems remain underexplored and raise unresolved challenges of data privacy,
+algorithmic bias and accurate behaviour prediction
+\parencite{farhan2023machine,vistorte2024integrating}. Consequently, there is a need
+to develop and validate adaptive gamification frameworks that tailor instructional
+content and motivational strategies to individual users while navigating these
+ethical and technical constraints
 \parencite{farhan2023machine,naseer2025game,shabadurai2025reinforcement}.
-
-
 
 \subsection{Gap}
 
-Three shortcomings follow from this evidence. First, \textbf{harms are documented as qualitative categories and post-hoc associations, not as an operational quantity}: no study produces a numeric harm metric that a running system can evaluate at decision time. Second, \textbf{the mitigations that have been proposed are single-shot design recommendations}: relative leaderboards that expose only neighbouring ranks \parencite{nugroho2025negative}, cooperative rather than competitive structures \parencite{edwards2022anxiety}, a gradually reduced dose of gamification as autonomous motivation develops \parencite{gao2024sdt}, and usage regulation or digital detox \parencite{gul2026brainrot} are each evaluated under static conditions, and none is deployed as a closed-loop response to measured learner state. \textcite{nugroho2025negative} further noted that the combined effect of elements applied together remains unexamined. Third, \textbf{measurement is unbalanced and insensitive to individual differences}: engagement and achievement are recorded continuously, whereas anxiety, need frustration and reward-chasing are measured rarely or not at all \parencite{edwards2022anxiety}, even though the functional significance of an identical element differs across learners \parencite{gao2024sdt}. Consequently, a platform cannot currently answer the question that \rqlink{2} poses: which configuration minimises documented harm while preserving engagement.
+Three shortcomings follow from this evidence. First, \textbf{harms are documented as qualitative categories and post-hoc associations, not as an operational quantity}: no study identified in this review produces a numeric harm metric that a running system can evaluate at decision time. Second, \textbf{the mitigations that have been proposed are single-shot design recommendations}: relative leaderboards that expose only neighbouring ranks \parencite{nugroho2025negative}, cooperative rather than competitive structures \parencite{edwards2022anxiety}, a gradually reduced dose of gamification as autonomous motivation develops \parencite{gao2024sdt}, and usage regulation or digital detox \parencite{gul2026brainrot} are each evaluated under static conditions, and none is deployed as a closed-loop response to measured learner state. \textcite{nugroho2025negative} further noted that the combined effect of elements applied together remains unexamined. Third, \textbf{measurement is unbalanced and insensitive to individual differences}: engagement and achievement are recorded continuously, whereas anxiety, need frustration and reward-chasing are measured rarely or not at all \parencite{edwards2022anxiety}, even though the functional significance of an identical element differs across learners \parencite{gao2024sdt}. Consequently, a platform cannot currently answer the question that \rqlink{2} poses: which configuration minimises documented harm while preserving engagement.
 
 Despite the growing implementation of adaptive gamification, current approaches to modelling learner states remain largely constrained 
 by static user typologies and rigid, rule-based decision systems that fail to capture the fluid and multidimensional nature 
 of student motivation and emotion \parencite{shabadurai2025reinforcement,zourmpakis2023adaptive}. Most existing platforms 
-rely heavily on basic behavioral metrics—such as quiz attempts, completion rates, or time-on-task—while demonstrating a 
+rely heavily on basic behavioural metrics—such as quiz attempts, completion rates, or time-on-task—while demonstrating a 
 limited focus on integrating real-time affective computing to continuously detect transient emotional states like anxiety, 
-frustration, or confusion \parencite{naseer2025game}. Furthermore, while some frameworks utilize machine learning to predict 
+frustration, or confusion \parencite{naseer2025game}. Furthermore, while some frameworks use machine learning to predict 
 engagement, there is a critical gap in seamlessly assessing real-time emotional fluctuations without relying on complex, 
 advanced sensing tools such as EEG or continuous facial recognition that pose significant privacy, accuracy, and implementation 
 challenges in everyday online learning environments \parencite{farhan2023machine,vistorte2024integrating}. Consequently, 
@@ -309,8 +335,21 @@ contemporary systems lack the sophisticated, real-time emotional state modelling
 specific gamification elements in a way that simultaneously sustains deep engagement and mitigates performance-induced anxiety 
 \parencite{naseer2025game,zourmpakis2023adaptive}.
 
-A further gap concerns how the effectiveness of gamification is evaluated over time. Although controlled and quasi-experimental comparisons are increasingly used, many studies still rely on relatively short interventions and immediate post-intervention measurements. For example, Zhang et al. evaluated gamified instruction over only four weeks and acknowledged that immediate post-intervention measures may be affected by novelty and social-desirability effects, while the short duration prevents observation of longer-term changes in motivation and engagement \parencite{zhang2026gamification}. Similarly, Ming and Choo examined gamification activities across approximately three teaching weeks and explicitly noted that longitudinal effects were not assessed \parencite{ming2025gamification}. Ojonuba et al. also highlighted methodological weaknesses in existing studies, including short treatment periods, limited comparison groups, single assessments, and insufficient use of validated measures \parencite{ojonuba2025web}.
-Longer evaluations do exist; for instance, Durmaz et al. conducted a four-month study and measured both academic performance and psychological variables such as fear of failure \parencite{durmaz2022gamification}. However, such studies mainly evaluate fixed gamification designs rather than systems that dynamically adapt game elements in response to possible harmful learner states. Therefore, the reviewed evidence still leaves an evaluation gap: there is limited evidence from long-duration studies that compare an adaptive, harm-aware gamification approach with both static gamification and non-gamified baselines while measuring learning benefits and potential psychological harms together. This makes it difficult to determine whether improvements in performance or engagement can be sustained without increasing negative motivational or emotional effects over a full semester.
+A further gap concerns how the effectiveness of gamification is evaluated over time.
+As reviewed in Section~\ref{sec:lit-eval}, most evaluations rely on short
+interventions with immediate post-testing, so novelty and social-desirability effects
+cannot be separated from sustained changes in motivation and engagement
+\parencite{zhang2026gamification,ming2025gamification}, and existing studies are
+further limited by short treatment periods, few comparison groups, single assessments
+and infrequently validated measures \parencite{ojonuba2025web}. Even the four-month
+evaluation that does exist varied a fixed set of elements rather than a system that
+adapts in response to measured learner state \parencite{durmaz2022gamification}. The
+resulting evaluation gap is therefore specific: there is limited evidence from
+long-duration studies that compare an adaptive, harm-aware gamification approach with
+both static gamification and non-gamified baselines while measuring learning benefits
+and potential psychological harms together, so it remains unclear whether gains in
+performance and engagement can be sustained without increasing negative motivational
+or emotional effects over a full semester.
 
 \subsection{Solution}
 
@@ -320,16 +359,16 @@ Building a robust learner-state model requires a dynamic, multi-layered architec
 a student's cognitive and emotional data in real time. The process typically begins with a baseline initialization, where
 psychological assessments like the Hexad framework are used to categorize the user's inherent motivational drivers and
 gamification preferences \parencite{shabadurai2025reinforcement,zourmpakis2023adaptive}. Once active learning commences, the model
-continuously ingests multimodal data, logging behavioral telemetry such as time-on-task and login frequency alongside
-cognitive performance metrics like quiz scores and mastery levels \parencite{naseer2025game}. Crucially, this behavioral
+continuously ingests multimodal data, logging behavioural telemetry such as time-on-task and login frequency alongside
+cognitive performance metrics like quiz scores and mastery levels \parencite{naseer2025game}. Crucially, this behavioural
 and cognitive data is fused with affective signals—captured through self-reported feedback, in-app dialogues, or 
 advanced affective computing technologies like facial expression analysis and biosignals—to continuously monitor transient 
 emotions such as anxiety, frustration, or engagement \parencite{naseer2025game,vistorte2024integrating}. Machine learning algorithms 
-then process this aggregated data to refine the profile in real time, utilizing techniques such as Bayesian knowledge tracing 
+then process this aggregated data to refine the profile in real time, using techniques such as Bayesian knowledge tracing 
 to estimate academic success, supervised learning to predict disengagement, and weighted averages to dynamically update the 
 learner's motivational trait vector \parencite{farhan2023machine,naseer2025game,shabadurai2025reinforcement}. Ultimately, this 
 continuously evolving model functions as a central intelligence hub, empowering the system's adaptive engine to deploy precisely 
-timed academic interventions and personalized gamification rewards that sustain user motivation and mitigate frustration 
+timed academic interventions and personalised gamification rewards that sustain user motivation and mitigate frustration 
 \parencite{farhan2023machine,naseer2025game}
 
 The proposed controller will be evaluated using a 14-week, three-group quasi-experimental longitudinal design. The first group will use the proposed adaptive, harm-aware gamification system, in which game elements are dynamically adjusted according to each learner's current state and harm score. The second group will use static gamification, where the same points, badges, leaderboards, challenges, and feedback rules remain fixed throughout the semester. The third group will act as a non-gamified baseline and will receive the same learning content and assessments without game elements. The learning materials, assessment difficulty, and instructional schedule will be kept consistent across all three conditions so that differences in outcomes can be more reasonably attributed to the gamification strategy. This three-condition structure extends the adaptive-versus-static comparison used in previous adaptive gamification research while also incorporating the non-gamified baseline used in educational gamification studies \parencite{shabadurai2025reinforcement,ojonuba2025web}.
@@ -361,24 +400,36 @@ The adaptive condition will be considered successful only if it produces sustain
 \section{Research Objectives}
 
 \begin{enumerate}
-    \item \textbf{RO1 (links to \rqlink{1}):} Design and evaluate a Dynamic Adaptive Gamification (DAG) 
-    architecture over an eight-week implementation period, utilizing effective computing and deep learning 
-    models to predict learners' emotional states via multimodal inputs like facial expressions or EEG signals.
-    The AI-driven system will continuously update player profiles based on frameworks like the Hexad user typology.
-    When frustration or anxiety is detected, the system will dynamically adjust or disable specific 
-    stress-inducing game mechanics, such as forced cooperation, time-restricted challenges, or rigid badge collection.
-    the intervention's success will be quantified by significant improvements in pre- and post-test knowledge scores,
-    increased intrinsic motivation and self-efficacy as measured by the Motivated Strategies for Learning questionnares 
-    (MSLQ), and elevated engagement metrics including average session length, time-on-task, and module completion rates.
-    \item \textbf{RO2 (links to \rqlink{2}):} Define and validate a quantitative harm metric together with a
-    pre-registered set of element-configuration rules that constrain gamification deployment. Specifically,
-    operationalise five harm constructs -- anxiety, motivational undermining, superficial learning, compulsive
-    engagement, and social comparison -- as platform-log and self-report variables, combine them into an
-    individualised harm score $H_t$ with threshold $\tau$, and specify the downgrade rules applied whenever
-    $H_t > \tau$. The objective is achieved when the metric has passed the three validation checks of
-    Section~\ref{sec:harm} and, over one 14-week semester, the adaptive condition records a weekly mean harm score at
-    least 20\% lower than static gamification while weekly active sessions and assessment marks remain within
-    a 10\% non-inferiority margin of the static-gamified condition.
+    \item \textbf{RO1 (links to \rqlink{1}):} Design and evaluate a real-time
+    learner-state model for the adaptive gamification controller over the 14-week
+    study period, using affective computing and deep-learning models on platform
+    interaction traces (login frequency, time-on-task, session patterns, quiz
+    performance) to predict learners' engagement and anxiety without EEG or
+    continuous facial capture. The system continuously updates player profiles based
+    on frameworks such as the Hexad user typology and, when frustration or anxiety is
+    detected, dynamically adjusts or disables stress-inducing game mechanics such as
+    forced cooperation, time-restricted challenges, or rigid badge collection. The
+    objective is achieved when the disengagement predictor reaches an area under the
+    receiver operating characteristic curve (AUC) $\ge 0.75$, the anxiety estimate
+    correlates with the concurrent STAI-6 self-report wave at $r \ge 0.40$, and
+    engagement indicators (average session length, time-on-task, module completion
+    rate) remain at least as high as in the static-gamification condition.
+    
+    \item \textbf{RO2 (links to \rqlink{2}):} Define and validate a quantitative harm
+    metric together with a pre-registered set of element-configuration rules that
+    constrain gamification deployment. Specifically, operationalise five harm
+    constructs -- anxiety, motivational undermining, superficial learning, compulsive
+    engagement, and social comparison -- as platform-log and self-report variables,
+    combine them into an individualised harm score $H_t$ with threshold $\tau$, and
+    specify the downgrade rules applied whenever $H_t > \tau$. The objective is
+    achieved when the metric passes the three validation checks of
+    Section~\ref{sec:harm} (internal consistency at Cronbach's $\alpha \ge 0.70$, a
+    positive moderate correlation with the concurrent self-report wave, and
+    prediction of session abandonment above the no-skill rate) and the dry run of
+    Algorithm~\ref{alg:dryrun} confirms that every applied configuration satisfies
+    $H_t \le \tau$, with the scheduled spike triggering the downgrade rules within
+    one decision step.
+    
     \item \textbf{RO3 (links to \rqlink{3}):} Conduct a 14-week, three-arm quasi-experimental
     evaluation -- adaptive harm-aware gamification, static gamification, and non-gamified
     instruction -- with approximately 150 undergraduates in a single course, using identical
@@ -398,6 +449,7 @@ The adaptive condition will be considered successful only if it produces sustain
 \section{Research Methodology}
 
 \subsection{Research Design and Approach}
+\label{sec:design}
 
 % Choose: Experimental, Quasi-experimental, Empirical, or Comparative -- with justification.
 % Include a pipeline overview (conceptual flow of data -> processing -> output).
@@ -416,9 +468,21 @@ both the state model and the harm threshold, which partially compensates for the
 randomisation. The design is quantitative, longitudinal and confirmatory: the analysis plan, the
 downgrade rules and the primary hypothesis are pre-registered before data collection.
 
+\textbf{Sample size and attrition.} The planned sample of approximately 150 learners
+distributed across three arms gives roughly 50 learners per arm; at $\alpha = 0.05$
+with 80\% power this supports detection of a standardised between-arm difference of
+approximately Cohen's $d = 0.56$, an effect smaller than the overall gamification
+estimate reported by \textcite{lu2024ai} ($g = 0.740$), and the repeated
+measurements collected from each learner over the 14-week period further raise
+sensitivity through the mixed-effects model. Attrition over a full semester is
+expected and is handled analytically: withdrawals and missed self-report waves are
+recorded, learners with incomplete data remain in the mixed-effects analysis under a
+missing-at-random assumption, attrition rates are compared across the three arms, and
+a complete-case sensitivity analysis is reported alongside the main results.
+
 The conceptual pipeline is described here in text for LaTeX compatibility. Interaction events
 emitted by the learning platform (logins, attempts, time-on-task, reward-screen views, leaderboard
-exposures) are captured as xAPI statements and written to an append-only event store. The
+exposures) are captured as Experience API (xAPI) statements and written to an append-only event store. The
 state-estimation module converts each learner's current window into an engagement--anxiety
 estimate; the harm module combines that estimate with logged and self-reported indicators into
 $H_t$, which is compared with $\tau$; the policy module then returns either the adaptive element
@@ -464,7 +528,7 @@ event-level and context-specific -- reward-screen dwell time, abandonment within
 leaderboard view, night-time activity -- and no public repository records these events under
 consent for harm analysis. Instruments are reused rather than invented: state anxiety is measured
 with the six-item short-form STAI \parencite{marteau1992stai}, and need frustration and intrinsic
-motivation with the BPNSFS and IMI identified by \textcite{gao2024sdt} as validated but underused.
+motivation with the Basic Psychological Need Satisfaction and Frustration Scales (BPNSFS) and the Intrinsic Motivation Inventory (IMI) identified by \textcite{gao2024sdt} as validated but underused.
 
 \textbf{Replicable dry run on synthetic traces.} Before any human data are collected, the
 controller's logic is checked on a synthetic event trace produced by a documented generator:
@@ -531,8 +595,7 @@ arithmetic.
 \end{tabular}
 \end{table}
 
-\textbf{Platform instrumentation.} The system is implemented as a plugin for a mainstream LMS
-(Moodle 4.x) backed by a Python service. Every gamification element is wrapped by an event emitter
+\textbf{Platform instrumentation.} The system is implemented as a plugin for a mainstream learning management system (LMS) such as Moodle 4.x backed by a Python service. Every gamification element is wrapped by an event emitter
 so that exposure, response and abandonment are separable, and every controller decision is written
 to an append-only log containing the state estimate, the harm score and the configuration applied,
 which makes the controller auditable as required by the ethical specification below.
@@ -541,57 +604,14 @@ which makes the controller auditable as required by the ethical specification be
 Algorithm~\ref{alg:dryrun} is replicable without special hardware or licensed software. For the
 study itself, PyTorch is used for the state-estimation model, scikit-learn for the comparator
 baselines, and pandas for the event pipeline; the models are deliberately small -- gradient-boosted
-trees and a shallow multilayer perceptron -- because inference runs per decision window on a single
-CPU server rather than on a GPU cluster, which keeps latency low and replication feasible.
+trees and a shallow multilayer perceptron -- because inference runs per decision window on ordinary
+CPU hardware rather than on a GPU cluster, which keeps latency low and replication feasible.
 Mixed-effects analysis is performed in R with lme4 and in Python with statsmodels; the LaTeX source,
-the generator script and the pre-registration are versioned in Git. Hardware is a university-hosted
-server (8 cores, 32\,GB RAM); no participant data leave the institution's access-controlled network.
-
-\subsubsection{Ethical Considerations}
-
-Because the study collects behavioural and affect data from human participants, it will be submitted to the university's research ethics committee for approval before recruitment, and data collection will not begin until approval is granted. Participation is voluntary: informed consent is obtained in writing, participants may withdraw at any time without academic penalty, and withdrawal triggers deletion of that participant's records. Learners assigned to the non-gamified control receive identical learning content, assessment and instructor contact, so that no participant is academically disadvantaged by group allocation, and gamification points are excluded from course grading entirely.
-
-Data are minimised, pseudonymised and stored on encrypted, access-controlled systems, with the linkage key held separately by the research team, and processing conforms to the Malaysian Personal Data Protection Act 2010 and to the institution's research-data policy. Raw interaction logs and self-report records are retained for three years from the end of the study and are then securely destroyed, while only de-identified aggregate tables are kept beyond that point. Affect and engagement records are treated as personal data: they are reported only in aggregate, are never shared with instructors on an identifiable basis, and are never used to infer clinical or mental-health status. Consistent with the finding that public ranking removes a learner's choice to disclose performance \parencite{edwards2022anxiety}, leaderboard visibility is opt-in, and the default display is the relative or cooperative form.
-
-Non-maleficence is enforced structurally rather than declared as an intention: the harm threshold $\tau$ functions as a hard constraint inside the controller, so an intervention that would raise harm cannot be selected, and no streak-loss, negative-notification or similar coercive mechanism is implemented, in line with the concerns about compulsive engagement raised by \textcite{gul2026brainrot}. Bias mitigation operates at three points. Individualised thresholds and monitoring of harm rates across demographic subgroups address response bias arising from cultural and individual variation in reactions to competition and rewards, which remains under-examined \parencite{gao2024sdt,nugroho2025negative}; if a subgroup shows a systematically higher harm rate, the affected downgrade rules are reviewed with that subgroup's data held out from rule tuning. Because participants opt in to leaderboard visibility, exposure is not random, so leaderboard analyses are reported both with and without the opt-in indicator as a covariate. Finally, all controller decisions are logged and auditable, the downgrade rules are pre-registered, and the analysis plan is specified before data collection to mitigate both algorithmic and researcher bias.
-
-\subsection{Evaluation Criteria}
-
-\textbf{Model criteria.} Disengagement prediction is evaluated as binary classification
-(disengaged during the next session: yes/no) using area under the ROC curve, precision, recall and
-F1, with a pre-set acceptance threshold of AUC $\ge 0.75$. The anxiety estimate is evaluated by its
-correlation with the concurrent STAI-6 wave at weeks 6 and 12, requiring $r \ge 0.40$. Both are
-compared against simple baselines: a session-length-only logistic regression and last-value
-persistence.
-
-\textbf{Metric criteria.} The harm score must pass the three validation checks specified in
-Section~\ref{sec:harm} -- Cronbach's $\alpha \ge 0.70$ for each multi-item scale, a positive
-moderate correlation with the concurrent self-report wave, and prediction of session abandonment
-within 24 hours above the no-skill rate -- before it is interpreted as a measure.
-
-\textbf{Outcome criteria.} Educational benefit is measured by assessment marks and pre-to-post
-knowledge gain (Hedges' $g$); engagement by weekly active sessions, time-on-task and module
-completion rate; motivational quality by the MSLQ and the intrinsic-motivation items; harm by the
-weekly mean and weekly peak of $H_t$, the proportion of decision points at which $H_t>\tau$, and the
-STAI-6 waves. The primary hypothesis is that condition A records a weekly mean harm score at least
-20\% lower than condition S while marks and weekly sessions remain within a 10\% non-inferiority
-margin of condition S, and that both gamified conditions exceed condition C on knowledge gain.
-
-\textbf{Baselines and ablation.} Condition S is the static baseline: one literature-standard
-configuration applied uniformly to every learner. Condition C is the non-gamified baseline:
-identical content, assessments and instructor contact without any game element. Two component
-ablations are run offline by replaying logged windows: (i) the policy with the harm constraint
-removed, that is, engagement-only adaptation, which isolates the contribution of $H_t$; and (ii) a
-rule-based state estimator in place of the learned model, which isolates the contribution of
-learning. Because both ablations are evaluated by replay, no participant is exposed to a
-configuration that the constraint would have forbidden.
-
-\textbf{Experimental setup and analysis.} All three conditions share content, instructor,
-assessment schedule and platform; gamification contributes no course marks. Analyses use linear
-mixed-effects models with random intercepts for learner and week, report effect sizes with 95\%
-confidence intervals, apply the non-inferiority test at $\alpha = 0.05$, and correct for multiple
-comparisons across secondary outcomes. System-level criteria are decision latency below one second
-per decision window and complete coverage of active learners by the state model.
+the generator script and the pre-registration are versioned in Git. None of this requires
+specialised hardware: the dry run of Algorithm~\ref{alg:dryrun} and the controller itself run on an
+ordinary development laptop -- for example, the AMD Ryzen 7 with 16\,GB RAM used
+to prepare this proposal -- so the experiment can be repeated by anyone with a similar machine and
+a Python installation, with no cloud account or GPU.
 
 \subsection{Harm-Detection Variables and Measurement}
 \label{sec:harm}
@@ -673,6 +693,53 @@ Narrative and quest elements & Prioritised, not downgraded: associated with redu
 Two design decisions follow from the literature. First, the downgrade rules are fixed before the study begins rather than adjusted during data collection, which limits researcher degrees of freedom and the associated interpretation bias that \textcite{gul2026brainrot} identified as a limitation of qualitative designs. Second, gamification is treated as a scaffold whose intensity is reduced over the semester as autonomous motivation develops, since the gradual withdrawal of gamification has been identified as an urgent research direction \parencite{gao2024sdt}.
 
 
+\subsection{Evaluation Criteria}
+
+\textbf{Model criteria.} Disengagement prediction is evaluated as binary classification
+(disengaged during the next session: yes/no) using area under the receiver operating characteristic (ROC) curve, precision, recall and
+F1 score, with a pre-set acceptance threshold of AUC $\ge 0.75$. The anxiety estimate is evaluated by its
+correlation with the concurrent STAI-6 wave at weeks 6 and 12, requiring $r \ge 0.40$. Both are
+compared against simple baselines: a session-length-only logistic regression and last-value
+persistence.
+
+\textbf{Metric criteria.} The harm score must pass the three validation checks specified in
+Section~\ref{sec:harm} -- Cronbach's $\alpha \ge 0.70$ for each multi-item scale, a positive
+moderate correlation with the concurrent self-report wave, and prediction of session abandonment
+within 24 hours above the no-skill rate -- before it is interpreted as a measure.
+
+\textbf{Outcome criteria.} Educational benefit is measured by assessment marks and pre-to-post
+knowledge gain (Hedges' $g$); engagement by weekly active sessions, time-on-task and module
+completion rate; motivational quality by the Motivated Strategies for Learning Questionnaire (MSLQ) and the intrinsic-motivation items; harm by the
+weekly mean and weekly peak of $H_t$, the proportion of decision points at which $H_t>\tau$, and the
+STAI-6 waves. The primary hypothesis is that condition A records a weekly mean harm score at least
+20\% lower than condition S while marks and weekly sessions remain within a 10\% non-inferiority
+margin of condition S, and that both gamified conditions exceed condition C on knowledge gain.
+
+\textbf{Baselines and ablation.} Condition S is the static baseline: one literature-standard
+configuration applied uniformly to every learner. Condition C is the non-gamified baseline:
+identical content, assessments and instructor contact without any game element. Two component
+ablations are run offline by replaying logged windows: (i) the policy with the harm constraint
+removed, that is, engagement-only adaptation, which isolates the contribution of $H_t$; and (ii) a
+rule-based state estimator in place of the learned model, which isolates the contribution of
+learning. Because both ablations are evaluated by replay, no participant is exposed to a
+configuration that the constraint would have forbidden.
+
+\textbf{Experimental setup and analysis.} All three conditions share content, instructor,
+assessment schedule and platform; gamification contributes no course marks. Analyses use linear
+mixed-effects models with random intercepts for learner and week, report effect sizes with 95\%
+confidence intervals, apply the non-inferiority test at $\alpha = 0.05$, and correct for multiple
+comparisons across secondary outcomes. System-level criteria are decision latency below one second
+per decision window and complete coverage of active learners by the state model.
+
+\subsection{Ethical Considerations}
+\label{sec:ethics}
+
+Because the study collects behavioural and affect data from human participants, it will be submitted to the university's research ethics committee for approval before recruitment, and data collection will not begin until approval is granted. Participation is voluntary: informed consent is obtained in writing, participants may withdraw at any time without academic penalty, and withdrawal triggers deletion of that participant's records. Learners assigned to the non-gamified control receive identical learning content, assessment and instructor contact, so that no participant is academically disadvantaged by group allocation, and gamification points are excluded from course grading entirely.
+
+Data are minimised, pseudonymised and stored on encrypted, access-controlled systems, with the linkage key held separately by the research team, and processing conforms to the Malaysian Personal Data Protection Act 2010 and to the institution's research-data policy. Raw interaction logs and self-report records are retained for three years from the end of the study and are then securely destroyed, while only de-identified aggregate tables are kept beyond that point. Affect and engagement records are treated as personal data: they are reported only in aggregate, are never shared with instructors on an identifiable basis, and are never used to infer clinical or mental-health status. Consistent with the finding that public ranking removes a learner's choice to disclose performance \parencite{edwards2022anxiety}, leaderboard visibility is opt-in, and the default display is the relative or cooperative form.
+
+Non-maleficence is enforced structurally rather than declared as an intention: the harm threshold $\tau$ functions as a hard constraint inside the controller, so an intervention that would raise harm cannot be selected, and no streak-loss, negative-notification or similar coercive mechanism is implemented, in line with the concerns about compulsive engagement raised by \textcite{gul2026brainrot}. Bias mitigation operates at three points. Individualised thresholds and monitoring of harm rates across demographic subgroups address response bias arising from cultural and individual variation in reactions to competition and rewards, which remains under-examined \parencite{gao2024sdt,nugroho2025negative}; if a subgroup shows a systematically higher harm rate, the affected downgrade rules are reviewed with that subgroup's data held out from rule tuning. Because participants opt in to leaderboard visibility, exposure is not random, so leaderboard analyses are reported both with and without the opt-in indicator as a covariate. Finally, all controller decisions are logged and auditable, the downgrade rules are pre-registered, and the analysis plan is specified before data collection to mitigate both algorithmic and researcher bias.
+
 % =========================================
 % 7. EXPECTED OUTCOMES
 % =========================================
@@ -702,12 +769,12 @@ non-inferiority margin, and identifying which substitutions (relative leaderboar
 difficulty adaptation, narrative prioritisation) carry that effect.
 
 \textbf{(4) A semester-long three-arm comparison.} The evaluation responds directly to the
-short-duration, benefit-only designs summarised in Section~2.3 \parencite{lu2024ai,ming2025gamification}
+short-duration, benefit-only designs summarised in Section~\ref{sec:lit-eval} \parencite{lu2024ai,ming2025gamification}
 by measuring benefit and harm on the same weekly schedule over 14 weeks.
 
 Deliverables are the instrumented LMS plugin and controller source code, the pre-registered
 analysis plan, a de-identified dataset with a data dictionary subject to the retention policy of
-Section~6.3, a reproducibility package, and at least one manuscript submitted to a peer-reviewed
+Section~\ref{sec:ethics}, a reproducibility package, and at least one manuscript submitted to a peer-reviewed
 venue. For the field, the contribution is a shift from asking \emph{whether} gamification works to
 asking \emph{which configuration is safe for which learner at which moment} -- a prerequisite for
 deploying gamification responsibly at scale.
@@ -730,21 +797,27 @@ deploying gamification responsibly at scale.
 \centering\textbf{Phase} & \centering\textbf{Activities} & \centering\textbf{Duration} & \centering\textbf{Milestone}
 \tabularnewline
 \hline
-1. Requirement \& design & Gap analysis, system specification & Days 1--2 & Design document
+1. Requirement \& design & Gap analysis, system specification, ethics submission & Days 1--14 & Design document and ethics approval
 \tabularnewline
 \hline
-2. Modelling \& prototyping & Learner-state model, controller prototype & Days 3--6 & Working prototype
+2. Modelling \& prototyping & Learner-state model, harm metric, controller prototype & Days 15--45 & Working prototype
 \tabularnewline
 \hline
-3. Pilot \& refinement & Pilot run, metric calibration & Days 7--8 & Pilot report
+3. Pilot \& refinement & Synthetic dry run, pilot run, metric calibration & Days 46--60 & Pilot report
 \tabularnewline
 \hline
-4. Full evaluation & Baselines, ablation, analysis & Days 9--12 & Results \& write-up
+4. Full evaluation & Three-arm deployment: seven-day baseline and 98 days of data collection & Days 61--165 & Complete dataset
+\tabularnewline
+\hline
+5. Analysis \& write-up & Mixed-effects analysis, ablation, write-up & Days 166--195 & Results \& manuscript
 \tabularnewline
 \hline
 \end{tabular}
 \end{table}
 
+
+The 105-day evaluation window (Days~61--165) comprises the seven-day baseline
+period and the 98-day (14-week) intervention specified in Section~\ref{sec:design}.
 
 % =========================================
 % 9. CONCLUSION
@@ -828,11 +901,11 @@ that it contributes to this proposal.
 \setlength{\tabcolsep}{1pt}
 \renewcommand{\arraystretch}{1.15}
 \setlength\LTleft{0pt}
-\setlength\LTright{0pt}
+\setlength\LTright{\fill}
 
 \begin{longtable}{|
 L{1.5cm}|
-L{0.9cm}|
+L{1.1cm}|
 C{0.7cm}|
 L{1.7cm}|
 L{1.7cm}|
@@ -905,7 +978,7 @@ Imran &
 2023 &
 Qualitative literature synthesis and conceptual ML gamification framework. &
 Secondary literature across various industries. &
-ML behavior prediction and reinforcement learning (RL) optimize rewards and prevent user disengagement. &
+ML behaviour prediction and reinforcement learning (RL) optimise rewards and prevent user disengagement. &
 Cross-disciplinary focus; addresses data ethics and bias. &
 Purely theoretical without empirical validation. &
 Empirical testing in active platforms; bias-auditing frameworks.
@@ -945,7 +1018,7 @@ Imran &
 Quasi-experimental mixed-methods testing an adaptive 4-module platform. &
 250 undergraduates over 8 weeks. &
 Adaptive group showed significantly higher post-test scores, intrinsic motivation, and mastery (82\% vs 64\%). &
-Robust sample size; triangulates cognitive and behavioral metrics. &
+Robust sample size; triangulates cognitive and behavioural metrics. &
 Single-institution trial; lacks direct physiological emotion sensing. &
 Multi-arm decomposition studies; delayed post-testing; sensor-based affective computing.
 \tabularnewline
@@ -1010,7 +1083,7 @@ Yaw &
 Quasi-experimental mixed-methods study with pre-test, post-test, questionnaires, and interviews. &
 136 valid university students; gamified experimental group vs. traditional control group over 4 weeks. &
 Gamified instruction significantly improved learning performance, classroom participation, interest, motivation, and self-efficacy. &
-Multidimensional evaluation with control group, pre/post testing, effect-size analysis, and qualitative triangulation. &
+Multi-dimensional evaluation with control group, pre/post testing, effect-size analysis, and qualitative triangulation. &
 Short 4-week intervention; intact-class allocation; possible novelty and social-desirability effects; single institution. &
 Longer full-semester evaluations and comparisons of adaptive gamification across broader populations.
 \tabularnewline
