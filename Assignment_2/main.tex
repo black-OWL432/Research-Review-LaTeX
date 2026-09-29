@@ -22,6 +22,7 @@
 \usepackage{ragged2e}       % Text alignment
 \usepackage{setspace}       % Line spacing
 \usepackage{array}          % Array for tables (column types for timeline/milestone tables)
+\usepackage{longtable}
 \usepackage{algorithm}      % Float environment for pseudocode/algorithm listing
 \usepackage{anyfontsize}    % Scalable font sizes without CM size substitution warnings
 
@@ -823,15 +824,26 @@ that it contributes to this proposal.
 
 
 
-\begin{table}[H]
+\fontsize{7pt}{8.5pt}\selectfont
+\setlength{\tabcolsep}{1pt}
+\renewcommand{\arraystretch}{1.15}
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+
+\begin{longtable}{|
+L{1.5cm}|
+L{0.9cm}|
+C{0.7cm}|
+L{1.7cm}|
+L{1.7cm}|
+L{2.2cm}|
+L{1.7cm}|
+L{1.7cm}|
+L{1.9cm}|}
 
 \caption{Group article matrix of reviewed research studies}
-\label{tab:article-matrix}
+\label{tab:article-matrix} \\
 
-\fontsize{9pt}{10.5pt}\selectfont
-
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|L{2.2cm}|L{1.5cm}|C{1cm}|L{2.6cm}|L{2.6cm}|L{3.2cm}|L{2.6cm}|L{2.4cm}|L{2.6cm}|}
 \hline
 
 \centering\textbf{Article} &
@@ -846,71 +858,234 @@ that it contributes to this proposal.
 \tabularnewline
 \hline
 
-Zourmpakis et al. & Imran & 2023 & Semi-experimental simulations and surveys. & 80 students in Greece & 92.5\% enjoyed the adaptive app. Badges and stories motivated most, but forced cooperation and currency induced stress. & Dynamic runtime adaptation; strong pedagogical integration. & Small sample; no control group; hardware limits forced peer grouping. & Longitudinal studies and comparisons against static gamification.
+\endfirsthead
+
+\multicolumn{9}{c}{%
+\tablename\ \thetable{} -- continued from previous page} \\
+\hline
+
+\centering\textbf{Article} &
+\centering\textbf{Student} &
+\centering\textbf{Year} &
+\centering\textbf{Method} &
+\centering\textbf{Dataset} &
+\centering\textbf{Key Results} &
+\centering\textbf{Strength} &
+\centering\textbf{Limitation} &
+\centering\textbf{Research Gap}
 \tabularnewline
 \hline
 
-Farhan et al. & Imran & 2023 & Qualitative literature synthesis and conceptual ML gamification framework. & Secondary literature across various industries. & ML behavior prediction and reinforcement learning (RL) optimize rewards and prevent user disengagement. & Cross-disciplinary focus; addresses data ethics and bias.    & Purely theoretical without empirical validation. & Empirical testing in active platforms; bias-auditing frameworks.
+\endhead
+
+\hline
+\multicolumn{9}{r}{Continued on next page}
+\tabularnewline
+\endfoot
+
+\hline
+\endlastfoot
+
+
+Zourmpakis et al. &
+Imran &
+2023 &
+Semi-experimental simulations and surveys. &
+80 students in Greece &
+92.5\% enjoyed the adaptive app. Badges and stories motivated most, but forced cooperation and currency induced stress. &
+Dynamic runtime adaptation; strong pedagogical integration. &
+Small sample; no control group; hardware limits forced peer grouping. &
+Longitudinal studies and comparisons against static gamification.
 \tabularnewline
 \hline
 
-Vistorte et al. & Imran & 2024 & PRISMA systematic literature review and bibliometric mapping. & 41 studies on AI educational emotion assessment. & Deep learning achieves high multimodal emotion recognition accuracy, positively correlating with academic performance. & Rigorous screening protocol and multimodal scope. & Publication / language bias; relies on cross-sectional data. & Closed-loop tutoring integration, federated learning for privacy, and longitudinal validity.
+
+Farhan et al. &
+Imran &
+2023 &
+Qualitative literature synthesis and conceptual ML gamification framework. &
+Secondary literature across various industries. &
+ML behavior prediction and reinforcement learning (RL) optimize rewards and prevent user disengagement. &
+Cross-disciplinary focus; addresses data ethics and bias. &
+Purely theoretical without empirical validation. &
+Empirical testing in active platforms; bias-auditing frameworks.
 \tabularnewline
 \hline
 
-Shabadurai et al. & Imran & 2025 & Controlled experiment of an RL-based Dynamic Adaptive Gamification (DAG) system. & 40 university staff members in Malaysia. & DAG outperformed static gamification in engagement, completion rates (87.6\%), and 7-day retention (46.5\%). & Direct empirical benchmarking against static gamification using objective telemetry. & Small sample size; short 2-week intervention window. & Scaling to Deep RL; testing hybrid systems; broader demographic validation.
+
+Vistorte et al. &
+Imran &
+2024 &
+PRISMA systematic literature review and bibliometric mapping. &
+41 studies on AI educational emotion assessment. &
+Deep learning achieves high multimodal emotion recognition accuracy, positively correlating with academic performance. &
+Rigorous screening protocol and multimodal scope. &
+Publication / language bias; relies on cross-sectional data. &
+Closed-loop tutoring integration, federated learning for privacy, and longitudinal validity.
 \tabularnewline
 \hline
 
-Naseer et al. & Imran & 2025 & Quasi-experimental mixed-methods testing an adaptive 4-module platform. & 250 undergraduates over 8 weeks. & Adaptive group showed significantly higher post-test scores, intrinsic motivation, and mastery (82\% vs 64\%). & Robust sample size; triangulates cognitive and behavioral metrics. & Single-institution trial; lacks direct physiological emotion sensing. & Multi-arm decomposition studies; delayed post-testing; sensor-based affective computing.
+
+Shabadurai et al. &
+Imran &
+2025 &
+Controlled experiment of an RL-based Dynamic Adaptive Gamification (DAG) system. &
+40 university staff members in Malaysia. &
+DAG outperformed static gamification in engagement, completion rates (87.6\%), and 7-day retention (46.5\%). &
+Direct empirical benchmarking against static gamification using objective telemetry. &
+Small sample size; short 2-week intervention window. &
+Scaling to Deep RL; testing hybrid systems; broader demographic validation.
 \tabularnewline
 \hline
 
-Nugroho et al. & Lee & 2025 & PRISMA systematic literature review & 20 studies from 7 databases (206 screened) & Four categories of harm; harm is element-specific; 10.1\% rated points not at all helpful & Large, transparent search process covering 2020--2025 & Qualitative categories only; element combinations not examined & No operational harm metric usable as a real-time system constraint
+
+Naseer et al. &
+Imran &
+2025 &
+Quasi-experimental mixed-methods testing an adaptive 4-module platform. &
+250 undergraduates over 8 weeks. &
+Adaptive group showed significantly higher post-test scores, intrinsic motivation, and mastery (82\% vs 64\%). &
+Robust sample size; triangulates cognitive and behavioral metrics. &
+Single-institution trial; lacks direct physiological emotion sensing. &
+Multi-arm decomposition studies; delayed post-testing; sensor-based affective computing.
 \tabularnewline
 \hline
 
-Edwards & Lee & 2022 & Qualitative systematic review & 40 gamification studies on second language learning & Anxiety measured in only 10 studies; competitive elements failed to reduce anxiety in half of the studies using them & Direct focus on anxiety, an under-measured outcome & Language-learning context; single elements not tested experimentally & Controlled tests of which elements raise or reduce anxiety
+
+Nugroho et al. &
+Lee &
+2025 &
+PRISMA systematic literature review. &
+20 studies from 7 databases (206 screened). &
+Four categories of harm; harm is element-specific; 10.1\% rated points not at all helpful. &
+Large, transparent search process covering 2020--2025. &
+Qualitative categories only; element combinations not examined. &
+No operational harm metric usable as a real-time system constraint.
 \tabularnewline
 \hline
 
-Gao & Lee & 2024 & Conceptual analysis (position paper) & No empirical sample; identifies IMI, BPNSFS and PENS instruments & Functional significance of an event differs by learner; gradually reduced dose of gamification recommended & Grounds harm in established self-determination theory with validated instruments & No empirical validation; recommendations not implemented & Convert SDT principles into runtime constraints on element selection
+
+Edwards &
+Lee &
+2022 &
+Qualitative systematic review. &
+40 gamification studies on second language learning. &
+Anxiety measured in only 10 studies; competitive elements failed to reduce anxiety in half of the studies using them. &
+Direct focus on anxiety, an under-measured outcome. &
+Language-learning context; single elements not tested experimentally. &
+Controlled tests of which elements raise or reduce anxiety.
 \tabularnewline
 \hline
 
-G\"{u}l & Lee & 2026 & Qualitative case study & 113 students in T\"{u}rkiye (30 interviewed) & Brain rot manifests as attention deficits, procrastination, anxiety and distorted time perception; reward loops identified as a cause & Links compulsive engagement to concrete, documentable behaviours & Self-reported screen time is biased; strategies not implemented & Quantitative prevalence and longitudinal measurement of compulsive use
+
+Gao &
+Lee &
+2024 &
+Conceptual analysis (position paper). &
+No empirical sample; identifies IMI, BPNSFS and PENS instruments. &
+Functional significance of an event differs by learner; gradually reduced dose of gamification recommended. &
+Grounds harm in established self-determination theory with validated instruments. &
+No empirical validation; recommendations not implemented. &
+Convert SDT principles into runtime constraints on element selection.
 \tabularnewline
 \hline
 
-Zhang et al. & Yaw & 2026 & Quasi-experimental mixed-methods study with pre-test, post-test, questionnaires, and interviews. & 136 valid university students; gamified experimental group vs. traditional control group over 4 weeks. & Gamified instruction significantly improved learning performance, classroom participation, interest, motivation, and self-efficacy. & Multidimensional evaluation with control group, pre/post testing, effect-size analysis, and qualitative triangulation. & Short 4-week intervention; intact-class allocation; possible novelty and social-desirability effects; single institution. & Longer full-semester evaluations and comparisons of adaptive gamification across broader populations. 
+
+G\"{u}l &
+Lee &
+2026 &
+Qualitative case study. &
+113 students in T\"{u}rkiye (30 interviewed). &
+Brain rot manifests as attention deficits, procrastination, anxiety and distorted time perception; reward loops identified as a cause. &
+Links compulsive engagement to concrete, documentable behaviours. &
+Self-reported screen time is biased; strategies not implemented. &
+Quantitative prevalence and longitudinal measurement of compulsive use.
 \tabularnewline
 \hline
 
-Lu et al. & Yaw & 2024 & Random-effects meta-analysis with moderator analysis. & 22 empirical studies published from 2010--2023, producing 46 independent effect sizes. & Overall effect was Hedges' $g=0.740$; knowledge achievement $g=0.841$, motivation $g=0.743$, and thinking skills $g=0.367$. & Quantitative synthesis of effect sizes across learning outcomes, durations, sample sizes, and game types. & Focused on AI education and combined educational games, game-based learning, and gamification; high heterogeneity across studies. & More gamification-specific evidence and long-term studies that evaluate both educational benefits and possible negative effects. 
+
+Zhang et al. &
+Yaw &
+2026 &
+Quasi-experimental mixed-methods study with pre-test, post-test, questionnaires, and interviews. &
+136 valid university students; gamified experimental group vs. traditional control group over 4 weeks. &
+Gamified instruction significantly improved learning performance, classroom participation, interest, motivation, and self-efficacy. &
+Multidimensional evaluation with control group, pre/post testing, effect-size analysis, and qualitative triangulation. &
+Short 4-week intervention; intact-class allocation; possible novelty and social-desirability effects; single institution. &
+Longer full-semester evaluations and comparisons of adaptive gamification across broader populations.
 \tabularnewline
 \hline
 
-Durmaz et al. & Yaw & 2022 & Controlled field experiment comparing redesigned and original gamification elements. & 392 active university students in a one-term course lasting 4 months; 194 experimental and 198 control. & Redesigned leaderboard and point mechanisms reduced fear of failure and power motives, reduced performance-avoidance goals, and improved theory and final grades. & Long-duration field study; directly examines psychological effects of leaderboard and point design while other elements were kept unchanged. & Participants were mainly young Spanish students, limiting generalizability; only selected game elements were redesigned. & Replication across more diverse populations and further element-level testing of how gamification design affects motivation and harm. 
+
+Lu et al. &
+Yaw &
+2024 &
+Random-effects meta-analysis with moderator analysis. &
+22 empirical studies published from 2010--2023, producing 46 independent effect sizes. &
+Overall effect was Hedges' $g=0.740$; knowledge achievement $g=0.841$, motivation $g=0.743$, and thinking skills $g=0.367$. &
+Quantitative synthesis of effect sizes across learning outcomes, durations, sample sizes, and game types. &
+Focused on AI education and combined educational games, game-based learning, and gamification; high heterogeneity across studies. &
+More gamification-specific evidence and long-term studies that evaluate both educational benefits and possible negative effects.
 \tabularnewline
 \hline
 
-Ojonuba et al. & Yaw & 2025 & Quasi-experimental mixed-methods comparison of gamified and non-gamified learning systems. & 60 university engineering students initially enrolled; 53 participants included in final analysis. & The gamified group achieved better performance, but engagement and motivation did not differ significantly from the non-gamified group. & Clear gamified vs. non-gamified baseline; evaluates performance, engagement, and motivation using the same course content. & Short intervention; no random assignment; sample may be underpowered for small effects; multiple game elements were combined simultaneously. & Longer adaptive studies and factorial or A/B experiments to isolate individual game-element effects and reduce novelty effects. 
+
+Durmaz et al. &
+Yaw &
+2022 &
+Controlled field experiment comparing redesigned and original gamification elements. &
+392 active university students in a one-term course lasting 4 months; 194 experimental and 198 control. &
+Redesigned leaderboard and point mechanisms reduced fear of failure and power motives, reduced performance-avoidance goals, and improved theory and final grades. &
+Long-duration field study; directly examines psychological effects of leaderboard and point design while other elements were kept unchanged. &
+Participants were mainly young Spanish students, limiting generalizability; only selected game elements were redesigned. &
+Replication across more diverse populations and further element-level testing of how gamification design affects motivation and harm.
 \tabularnewline
 \hline
 
-Ming \& Choo & Yaw & 2025 & Cross-sectional study using online questionnaires and learning analytics after gamified flipped-learning activities. & 163 first-year pharmacy students; three escape-room activities conducted during Weeks 9--11. & Video engagement, lecture preparedness, motivation, enjoyment, and confidence increased after the gamification activities. & Combines behavioural learning analytics with student-reported motivation and engagement measures. & Short-term cross-sectional evaluation; no longitudinal assessment; participation before lectures varied. & Longitudinal evaluation of whether engagement and motivation gains persist over a longer academic period. 
+
+Ojonuba et al. &
+Yaw &
+2025 &
+Quasi-experimental mixed-methods comparison of gamified and non-gamified learning systems. &
+60 university engineering students initially enrolled; 53 participants included in final analysis. &
+The gamified group achieved better performance, but engagement and motivation did not differ significantly from the non-gamified group. &
+Clear gamified vs. non-gamified baseline; evaluates performance, engagement, and motivation using the same course content. &
+Short intervention; no random assignment; sample may be underpowered for small effects; multiple game elements were combined simultaneously. &
+Longer adaptive studies and factorial or A/B experiments to isolate individual game-element effects and reduce novelty effects.
 \tabularnewline
 \hline
 
-L\'opez-Fern\'andez et al. & Yaw & 2024 & Cluster-randomized controlled trial with pre-test, post-test, and perception questionnaire. & 217 computer science students; 110 in the traditional-lecture control group and 117 in the LEGO Serious Play experimental group. & The experimental group achieved greater learning gains and reported higher motivation than the traditional-lecture group. & Large sample; rigorous randomized comparative design; uses both learning-performance and perception measures with effect sizes. & Intervention lasted about 1.5 hours and evaluates LEGO Serious Play rather than pure educational gamification. & Longer-duration comparative studies are needed to determine whether game-related learning effects remain stable over time. 
+
+Ming \& Choo &
+Yaw &
+2025 &
+Cross-sectional study using online questionnaires and learning analytics after gamified flipped-learning activities. &
+163 first-year pharmacy students; three escape-room activities conducted during Weeks 9--11. &
+Video engagement, lecture preparedness, motivation, enjoyment, and confidence increased after the gamification activities. &
+Combines behavioural learning analytics with student-reported motivation and engagement measures. &
+Short-term cross-sectional evaluation; no longitudinal assessment; participation before lectures varied. &
+Longitudinal evaluation of whether engagement and motivation gains persist over a longer academic period.
 \tabularnewline
 \hline
 
-\end{tabular}%
-}
 
-\end{table}
+L\'opez-Fern\'andez et al. &
+Yaw &
+2024 &
+Cluster-randomized controlled trial with pre-test, post-test, and perception questionnaire. &
+217 computer science students; 110 in the traditional-lecture control group and 117 in the LEGO Serious Play experimental group. &
+The experimental group achieved greater learning gains and reported higher motivation than the traditional-lecture group. &
+Large sample; rigorous randomized comparative design; uses both learning-performance and perception measures with effect sizes. &
+Intervention lasted about 1.5 hours and evaluates LEGO Serious Play rather than pure educational gamification. &
+Longer-duration comparative studies are needed to determine whether game-related learning effects remain stable over time.
+\tabularnewline
+\hline
 
+
+\end{longtable}
+
+\normalsize
+\renewcommand{\arraystretch}{1}
 
 
 
