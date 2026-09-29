@@ -213,23 +213,63 @@ Three gaps follow from the preceding themes, and they map directly onto the rese
 \subsection{Context}
 
 % TODO:
-% 1. IMRAN  -> what is known about adaptive / personalised gamification
+
 % 2. YAW    -> what is known about evaluation designs and effectiveness
 
 Gamification has become a standard feature of digital learning: platforms such as Kahoot! and Quizizz routinely deploy points, challenges and leaderboards to raise motivation and participation, creating an implicit expectation that gamification is universally beneficial \parencite{nugroho2025negative}. The benefit evidence is real but not uniform, and the counter-evidence is now systematic rather than anecdotal. \textcite{nugroho2025negative} classified the negative effects of ten common game elements into four recurring categories -- performance pressure and psychological strain, superficial learning effects, motivational-engagement decline, and psychological distress and emotional strain -- and reported that the effectiveness of points was experienced unevenly: 10.1\% of respondents judged points not at all helpful, while only 13.1\% judged them beneficial. Independent evidence converges on the same pattern: in a qualitative systematic review of 40 gamification studies, \textcite{edwards2022anxiety} found that anxiety -- a central learner affect -- was examined in only 10 studies, and that challenge- and competition-based elements failed to reduce anxiety in 50\% of the studies employing them. \textcite{gul2026brainrot} extended this concern beyond motivation to compulsive, notification-driven engagement among 113 higher-education students, and recommended usage regulation and screen-time monitoring as preventive measures. SDT, the dominant explanatory framework for gamification, has been applied superficially, so the mechanisms by which a given element helps or harms a given learner remain under-specified \parencite{gao2024sdt}.
+
+Across digital education and corporate training environments, traditional instructional methods consistently struggle with high 
+attrition, user isolation, and a lack ofsustained motivation \parencite{naseer2025game,shabadurai2025reinforcement}. While gamification
+has emerged as a popular motivational strategy to combat this, conventional "one-size-fits-all" models rely on static, predefined
+rule systems and uniform reward structures that fail to adapt to evolving individual preferences or behaviours, ultimately losing user
+interest over time \parencite{farhan2023machine,shabadurai2025reinforcement,zourmpakis2023adaptive}. Furthermore, because effective
+learning and engagement are deeply tied to dynamic emotional and cognitive states, rigid platforms often fail to appropriately 
+address user frustration or disengagement as it occurs \parencite{naseer2025game,vistorte2024integrating}. Although recent advancements
+in artificial intelligence, machine learning, and affective computing offer the capability to assess user emotions in real-time
+and personalize game mechanics, these integrated adaptive systems remain underexplored and introduce complex challenges regarding 
+data privacy, algorithmic bias, and accurate behavior prediction \parencite{farhan2023machine,vistorte2024integrating}. Consequently,
+there is a critical need to develop and validate robust, AI-driven adaptive gamification frameworks that can dynamically tailor both 
+instructional content and motivational strategies to individual users while successfully navigating these ethical and technical constraints
+\parencite{farhan2023machine,naseer2025game,shabadurai2025reinforcement}.
 
 \subsection{Gap}
 
 Three shortcomings follow from this evidence. First, \textbf{harms are documented as qualitative categories and post-hoc associations, not as an operational quantity}: no study produces a numeric harm metric that a running system can evaluate at decision time. Second, \textbf{the mitigations that have been proposed are single-shot design recommendations}: relative leaderboards that expose only neighbouring ranks \parencite{nugroho2025negative}, cooperative rather than competitive structures \parencite{edwards2022anxiety}, a gradually reduced dose of gamification as autonomous motivation develops \parencite{gao2024sdt}, and usage regulation or digital detox \parencite{gul2026brainrot} are each evaluated under static conditions, and none is deployed as a closed-loop response to measured learner state. \textcite{nugroho2025negative} further noted that the combined effect of elements applied together remains unexamined. Third, \textbf{measurement is unbalanced and insensitive to individual differences}: engagement and achievement are recorded continuously, whereas anxiety, need frustration and reward-chasing are measured rarely or not at all \parencite{edwards2022anxiety}, even though the functional significance of an identical element differs across learners \parencite{gao2024sdt}. Consequently, a platform cannot currently answer the question that \rqlink{2} poses: which configuration minimises documented harm while preserving engagement.
 
-% IMRAN: expand the RQ1 gap -- what is missing in learner-state modelling.
+Despite the growing implementation of adaptive gamification, current approaches to modelling learner states remain largely constrained 
+by static user typologies and rigid, rule-based decision systems that fail to capture the fluid and multidimensional nature 
+of student motivation and emotion \parencite{shabadurai2025reinforcement,zourmpakis2023adaptive}. Most existing platforms 
+rely heavily on basic behavioral metrics—such as quiz attempts, completion rates, or time-on-task—while demonstrating a 
+limited focus on integrating real-time affective computing to continuously detect transient emotional states like anxiety, 
+frustration, or confusion \parencite{naseer2025game}. Furthermore, while some frameworks utilize machine learning to predict 
+engagement, there is a critical gap in seamlessly assessing real-time emotional fluctuations without relying on complex, 
+advanced sensing tools such as EEG or continuous facial recognition that pose significant privacy, accuracy, and implementation 
+challenges in everyday online learning environments \parencite{farhan2023machine,vistorte2024integrating}. Consequently, 
+contemporary systems lack the sophisticated, real-time emotional state modelling required to dynamically select and calibrate 
+specific gamification elements in a way that simultaneously sustains deep engagement and mitigates performance-induced anxiety 
+\parencite{naseer2025game,zourmpakis2023adaptive}.
 % YAW: expand the RQ3 gap -- what is missing in evaluation design.
 
 \subsection{Solution}
 
 We propose an \textbf{adaptive, harm-aware gamification controller} that closes this loop. The system estimates each learner's state from platform interaction logs and brief self-report, computes a quantitative harm score $H_t$ that aggregates anxiety, need-frustration, superficial-learning, compulsive-use and social-comparison indicators, and constrains element selection so that a configuration is applied only while $H_t \le \tau$, where $\tau$ is calibrated to the individual learner's own baseline. When the constraint is violated, competitive and controlling elements are substituted or downgraded according to the rules specified in Table~\ref{tab:downgrade-rules}, and gamification intensity is tapered as autonomous motivation increases \parencite{gao2024sdt}. The controller is evaluated in a semester-long quasi-experimental design against static-gamified and non-gamified baselines using balanced benefit-and-harm metrics. This directly addresses \rqlink{2}, supplies the harm constraint required by \rqlink{1}, and provides the treatment condition for \rqlink{3}.
 
-% IMRAN: how the learner-state model is built.
+Building a robust learner-state model requires a dynamic, multi-layered architecture that continuously captures and processes
+a student's cognitive and emotional data in real time. The process typically begins with a baseline initialization, where
+psychological assessments like the Hexad framework are used to categorize the user's inherent motivational drivers and
+gamification preferences \parencite{shabadurai2025reinforcement,zourmpakis2023adaptive}. Once active learning commences, the model
+continuously ingests multimodal data, logging behavioral telemetry such as time-on-task and login frequency alongside
+cognitive performance metrics like quiz scores and mastery levels \parencite{naseer2025game}. Crucially, this behavioral
+and cognitive data is fused with affective signals—captured through self-reported feedback, in-app dialogues, or 
+advanced affective computing technologies like facial expression analysis and biosignals—to continuously monitor transient 
+emotions such as anxiety, frustration, or engagement \parencite{naseer2025game,vistorte2024integrating}. Machine learning algorithms 
+then process this aggregated data to refine the profile in real time, utilizing techniques such as Bayesian knowledge tracing 
+to estimate academic success, supervised learning to predict disengagement, and weighted averages to dynamically update the 
+learner's motivational trait vector \parencite{farhan2023machine,naseer2025game,shabadurai2025reinforcement}. Ultimately, this 
+continuously evolving model functions as a central intelligence hub, empowering the system's adaptive engine to deploy precisely 
+timed academic interventions and personalized gamification rewards that sustain user motivation and mitigate frustration 
+\parencite{farhan2023machine,naseer2025game}
+
 % YAW: how the evaluation will be run.
 
 
