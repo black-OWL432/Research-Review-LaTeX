@@ -100,7 +100,7 @@
 \textbf{Course:} CPT6123-RESEARCH METHOD IN COMPUTER SC\\
 \textbf{Lecturer:} Jamal Arshad\\
 \textbf{Semester:} T2620\\
-\textbf{Submission Date:} 27\textsuperscript{th} Sep 2026
+\textbf{Submission Date:} 29\textsuperscript{th} Sep 2026
 }
 
 \end{center}
@@ -188,7 +188,7 @@ adaptation mechanisms capable of utilizing harm-detection algorithms to lessen t
 they negatively impact the user \parencite{zourmpakis2023adaptive,vistorte2024integrating, farhan2023machine}. Experimental
 evaluations of these systems typically utilize platforms like Unity or custom web applications,
 relying on quasi-experimental pre-/post-test comparisons and continuous engagement logs to measure
-the efficacy of dynamic adaptation \parencite{zourmpakis2023adaptive, shabadurai2025reinforcement,naseer2025game}.
+the efficacy of dynamic adaptation \parencite{zourmpakis2023adaptive, shabadurai2025reinforcement, naseer2025game}.
 
 
 \subsection{Documented Negative Effects and Harm-Mitigating Design (Link to \rqlink{2})}
@@ -255,8 +255,15 @@ We propose an \textbf{adaptive, harm-aware gamification controller} that closes 
 \section{Research Objectives}
 
 \begin{enumerate}
-    \item \textbf{RO1 (links to \rqlink{1}):} [SMART objective -- e.g., design and specify a real-time learner-state
-    model that fuses engagement and anxiety signals and selects gamification elements adaptively.]
+    \item \textbf{RO1 (links to \rqlink{1}):} Design and evaluate a Dynamic Adaptive Gamification (DAG) 
+    architecture over an eight-week implementation period, utilizing effective computing and deep learning 
+    models to predict learners' emotional states via multimodal inputs like facial expressions or EEG signals.
+    The AI-driven system will continuously update player profiles based on frameworks like the Hexad user typology.
+    When frustration or anxiety is detected, the system will dynamically adjust or disable specific 
+    stress-inducing game mechanics, such as forced cooperation, time-restricted challenges, or rigid badge collection.
+    the intervention's success will be quantified by significant improvements in pre- and post-test knowledge scores,
+    increased intrinsic motivation and self-efficacy as measured by the Motivated Strategies for Learning questionnares 
+    (MSLQ), and elevated engagement metrics including average session length, time-on-task, and module completion rates.
     \item \textbf{RO2 (links to \rqlink{2}):} Define and validate a quantitative harm metric together with a
     pre-registered set of element-configuration rules that constrain gamification deployment. Specifically,
     operationalise five harm constructs -- anxiety, motivational undermining, superficial learning, compulsive
@@ -543,15 +550,23 @@ The group should combine all individual article reviews into one matrix.
 \tabularnewline
 \hline
 
-1 & Student 1 & & & & & & & 
+Zourmpakis et al. & Imran & 2023 & Semi-experimental simulations and surveys. & 80 students in Greece & 92.5\% enjoyed the adaptive app. Badges and stories motivated most, but forced cooperation and currency induced stress. & Dynamic runtime adaptation; strong pedagogical integration. & Small sample; no control group; hardware limits forced peer grouping. & Longitudinal studies and comparisons against static gamification.
 \tabularnewline
 \hline
 
-2 & Student 1 & & & & & & & 
+Farhan et al. & Imran & 2023 & Qualitative literature synthesis and conceptual ML gamification framework. & Secondary literature across various industries. & ML behavior prediction and reinforcement learning (RL) optimize rewards and prevent user disengagement. & Cross-disciplinary focus; addresses data ethics and bias.    & Purely theoretical without empirical validation. & Empirical testing in active platforms; bias-auditing frameworks.
 \tabularnewline
 \hline
 
-3 & Student 1 & & & & & & & 
+Vistorte et al. & Imran & 2024 & PRISMA systematic literature review and bibliometric mapping. & 41 studies on AI educational emotion assessment. & Deep learning achieves high multimodal emotion recognition accuracy, positively correlating with academic performance. & Rigorous screening protocol and multimodal scope. & Publication / language bias; relies on cross-sectional data. & Closed-loop tutoring integration, federated learning for privacy, and longitudinal validity.
+\tabularnewline
+\hline
+
+Shabadurai et al. & Imran & 2025 & Controlled experiment of an RL-based Dynamic Adaptive Gamification (DAG) system. & 40 university staff members in Malaysia. & DAG outperformed static gamification in engagement, completion rates (87.6\%), and 7-day retention (46.5\%). & Direct empirical benchmarking against static gamification using objective telemetry. & Small sample size; short 2-week intervention window. & Scaling to Deep RL; testing hybrid systems; broader demographic validation.
+\tabularnewline
+\hline
+
+Naseer et al. & Imran & 2025 & Quasi-experimental mixed-methods testing an adaptive 4-module platform. & 250 undergraduates over 8 weeks. & Adaptive group showed significantly higher post-test scores, intrinsic motivation, and mastery (82\% vs 64\%). & Robust sample size; triangulates cognitive and behavioral metrics. & Single-institution trial; lacks direct physiological emotion sensing. & Multi-arm decomposition studies; delayed post-testing; sensor-based affective computing.
 \tabularnewline
 \hline
 
