@@ -158,8 +158,37 @@ Educational gamification now produces well-documented engagement and achievement
 % why adaptive gamification with harm mitigation matters in the current context.
 % Include: background, relevance, brief roadmap of the proposal.
 
-[Introduction: broader context of intelligent adaptive learning systems and why
-real-time, harm-aware gamification matters now.]
+The integration of artificial intelligence into education has shifted learning platforms from
+static content repositories toward intelligent, adaptive systems that model the learner and
+personalise what is presented next \parencite{vistorte2024integrating,naseer2025game}. Within
+these systems, gamification -- points, badges, leaderboards, challenges and narratives -- has
+become the standard mechanism for sustaining motivation and participation, and meta-analytic
+evidence confirms that it produces moderate-to-large benefits for knowledge achievement and
+motivation \parencite{lu2024ai}. The counter-evidence is now equally systematic: peer-reviewed
+reviews published between 2022 and 2025 document performance pressure and psychological strain,
+superficial point-chasing, motivational decline and anxiety \parencite{nugroho2025negative,edwards2022anxiety},
+together with compulsive, notification-driven engagement among higher-education students
+\parencite{gul2026brainrot}.
+
+The difficulty is that most platforms respond to this evidence by selecting one fixed
+configuration and applying it to every learner. Because the same element carries a different
+functional significance for different learners \parencite{gao2024sdt}, and because harm emerges
+during use rather than only in post-hoc surveys, a static design cannot detect when it is causing
+damage and has no mechanism to withdraw or downgrade the element responsible while the learner is
+still engaged. Recent prototypes show that runtime adaptation of game elements is technically
+feasible \parencite{zourmpakis2023adaptive,shabadurai2025reinforcement}, yet they adapt toward
+engagement alone and evaluate benefits only, so the closed loop between harm measurement and
+element selection remains open.
+
+This proposal therefore specifies an \textbf{adaptive, harm-aware gamification controller} that
+estimates learner state from platform interaction traces, computes a quantitative harm score
+against an individualised threshold, and selects, retains or downgrades gamification elements
+under that constraint, together with a semester-long quasi-experimental evaluation against
+static-gamified and non-gamified baselines. The remainder of the proposal is organised as follows.
+Section~2 reviews the literature thematically around the three research questions. Section~3 states
+the problem using the context--gap--solution structure, Sections~4 and~5 present the research
+questions and objectives, Section~6 details the methodology, Section~7 states the expected
+outcomes, and Sections~8 and~9 give the project timeline and conclusion.
 
 
 % =========================================
@@ -197,7 +226,33 @@ A systematic review published under PRISMA 2020 guidelines screened 206 records 
 
 \subsection{Evaluation Designs and Evidence for Gamification Effectiveness (Link to \rqlink{3})}
 
-[Thematic synthesis of experimental/quasi-experimental and meta-analytic evidence.]
+Evaluation of educational gamification is dominated by quasi-experimental and controlled
+comparisons, and the reported effects are consistently positive but bounded in three ways that
+matter for this proposal. Quasi-experimental comparisons report significant gains: Zhang et al.
+compared gamified with traditional instruction over four weeks with 136 university students and
+found experimental-group advantages on learning performance, classroom participation, interest,
+motivation and self-efficacy \parencite{zhang2026gamification}, while Ojonuba et al. compared
+gamified and non-gamified web-development systems with 60 students and obtained higher performance
+in the gamified arm but no significant difference in engagement or motivation, a pattern they
+attributed partly to novelty effects and individual differences \parencite{ojonuba2025web}.
+Longer evaluations exist but remain single-condition: Durmaz et al. varied leaderboard and point
+designs over a four-month course with 392 students while holding other elements constant, and
+reported lower fear of failure, fewer performance-avoidance goals and better grades in the
+redesigned condition \parencite{durmaz2022gamification}. Rigorous designs are available too, as in
+the cluster-randomised trial of López-Fernández et al. with 217 computer science students, where
+an active-learning activity significantly outperformed a lecture control on knowledge and
+motivation \parencite{lopezfernandez2024lego}. At the synthesis level, Lu et al. meta-analysed 22
+empirical studies and reported an overall random-effects estimate of Hedges' $g=0.740$, with
+$g=0.841$ for knowledge achievement, $g=0.743$ for motivation and $g=0.367$ for thinking skills,
+and found that effects shrink as the experimental period lengthens \parencite{lu2024ai}.
+
+Taken together, this evidence base supports the value of gamification but leaves \rqlink{3}
+unanswered. Interventions are short and effects decline with duration \parencite{lu2024ai,ming2025gamification};
+every study compares one fixed configuration with one control, so adaptation is never the
+treatment; and outcomes are measured overwhelmingly as benefits, with anxiety, need frustration
+and reward-chasing absent \parencite{edwards2022anxiety}. What is missing is a long-duration,
+multi-condition comparison in which the treatment itself adapts and harm is measured on the same
+schedule as benefit.
 
 \subsection{Gap Identification}
 
@@ -323,8 +378,15 @@ The adaptive condition will be considered successful only if it produces sustain
     Section~\ref{sec:harm} and, over one 14-week semester, the adaptive condition records a weekly mean harm score at
     least 20\% lower than static gamification while weekly active sessions and assessment marks remain within
     a 10\% non-inferiority margin of the static-gamified condition.
-    \item \textbf{RO3 (links to \rqlink{3}):} [SMART objective -- e.g., evaluate the adaptive harm-aware system against
-    static gamification and non-gamified baselines over one semester using defined benefit-and-harm metrics.]
+    \item \textbf{RO3 (links to \rqlink{3}):} Conduct a 14-week, three-arm quasi-experimental
+    evaluation -- adaptive harm-aware gamification, static gamification, and non-gamified
+    instruction -- with approximately 150 undergraduates in a single course, using identical
+    content, instructors and assessments across arms. The objective is achieved when the adaptive
+    condition records a weekly mean harm score at least 20\% lower than static gamification,
+    assessment marks and weekly active sessions remain within a 10\% non-inferiority margin of the
+    static-gamified condition, both gamified conditions exceed the non-gamified control on
+    pre-to-post knowledge gain and engagement, and every effect is reported as Hedges' $g$ with a
+    95\% confidence interval by the end of the semester.
 \end{enumerate}
 
 
@@ -339,14 +401,33 @@ The adaptive condition will be considered successful only if it produces sustain
 % Choose: Experimental, Quasi-experimental, Empirical, or Comparative -- with justification.
 % Include a pipeline overview (conceptual flow of data -> processing -> output).
 
-[Justified quasi-experimental design; high-level pipeline described in text.]
+The study adopts a quasi-experimental, nonequivalent control-group design with three arms
+observed over one 14-week semester: (A) adaptive harm-aware gamification, (S) static gamification
+using a single fixed element configuration, and (C) non-gamified instruction. A quasi-experimental
+design is chosen for three reasons. Random assignment cannot be imposed on timetable-scheduled
+classes, so learners are analysed by their existing class sections, which is the standard practice
+in the evaluation literature \parencite{zhang2026gamification,ojonuba2025web}. The intervention
+must also be evaluated where it is intended to operate, inside a running course, because the
+controller depends on the authentic interaction stream that a laboratory setting would change
+\parencite{durmaz2022gamification}. Finally, a pre-intervention baseline week (Week~0) in which
+logging is active but no elements are deployed gives each learner a within-subject control for
+both the state model and the harm threshold, which partially compensates for the absence of
+randomisation. The design is quantitative, longitudinal and confirmatory: the analysis plan, the
+downgrade rules and the primary hypothesis are pre-registered before data collection.
+
+The conceptual pipeline is described here in text for LaTeX compatibility. Interaction events
+emitted by the learning platform (logins, attempts, time-on-task, reward-screen views, leaderboard
+exposures) are captured as xAPI statements and written to an append-only event store. The
+state-estimation module converts each learner's current window into an engagement--anxiety
+estimate; the harm module combines that estimate with logged and self-reported indicators into
+$H_t$, which is compared with $\tau$; the policy module then returns either the adaptive element
+configuration or the downgrade configuration specified in Table~\ref{tab:downgrade-rules}. The
+selected configuration is rendered by the platform, learner outcomes are logged, and those data
+feed both the online update step of Algorithm~\ref{alg:controller} and the offline evaluation
+described below. In short, \emph{data $\rightarrow$ state estimation $\rightarrow$ harm scoring
+$\rightarrow$ constrained element selection $\rightarrow$ delivery $\rightarrow$ outcome logging}.
 
 \subsection{Technical Approach}
-
-% Step-by-step breakdown of the proposed algorithm/model/framework.
-% Model selection justification, algorithmic innovation (novel vs. repurposed),
-% optimisation strategy. MUST include pseudocode or a high-level architecture
-% description compatible with LaTeX.
 
 \begin{algorithm}[H]
 \caption{Adaptive harm-aware gamification controller (pseudocode outline)}
@@ -370,11 +451,100 @@ The adaptive condition will be considered successful only if it produces sustain
 
 \subsection{Data and Tools}
 
-% Datasets (provenance: public benchmark vs. platform-collected), key tools
-% (e.g., Python, scikit-learn/PyTorch, Moodle/LMS logs), justification of size/noise/features,
-% ethical considerations (human subjects, consent, privacy, bias mitigation).
+\textbf{Data provenance.} This proposal reports no experimental results: the controller, the harm
+metric and the evaluation plan are specified here, and the data that will test them do not yet
+exist. The \emph{primary} dataset will be collected from the instrumented course platform during
+the study, with a planned sample of approximately 150 undergraduates in the single course section
+where the three conditions run, observed for 14 weeks plus the Week-0 baseline, with three
+self-report waves per learner and continuous event logging; enrolment and event counts are design
+targets that will be reported as observed once collection begins. Platform-collected data are
+preferred to a public benchmark because the variables required by Equation~\ref{eq:harm} are
+event-level and context-specific -- reward-screen dwell time, abandonment within 60 seconds of a
+leaderboard view, night-time activity -- and no public repository records these events under
+consent for harm analysis. Instruments are reused rather than invented: state anxiety is measured
+with the six-item short-form STAI \parencite{marteau1992stai}, and need frustration and intrinsic
+motivation with the BPNSFS and IMI identified by \textcite{gao2024sdt} as validated but underused.
 
-[Dataset sources, platform instrumentation, and software tools.]
+\textbf{Replicable dry run on synthetic traces.} Before any human data are collected, the
+controller's logic is checked on a synthetic event trace produced by a documented generator:
+20 simulated learners over 30 days, one fixed random seed, and all generator parameters (baseline
+means and standard deviations, a scheduled anxiety spike on day~12) written down in the script.
+The check is intentionally small so that a reader can reproduce it with a single command,
+\texttt{python dryrun.py --seed 42}, on an ordinary laptop and assert three properties:
+(i)~every configuration actually applied satisfies $H_t \le \tau$; (ii)~the scheduled spike raises
+$H_t$ above $\tau$ and triggers the downgrade rules of Table~\ref{tab:downgrade-rules} within one
+decision step; and (iii)~a flat trace with no spike produces no downgrade at all. The harness is
+specified as follows.
+
+\begin{algorithm}[H]
+\caption{Synthetic dry-run harness (replicability check, no human data)}
+\label{alg:dryrun}
+\begin{flushleft}
+\fontsize{10pt}{12pt}\selectfont
+\textbf{Input:} generator parameters $\phi$, seed $s$, threshold $\tau$ \\
+\textbf{Output:} decision log $L$ and three pass/fail assertions
+\end{flushleft}
+\hrulefill
+\vspace{0.2cm}
+\begin{enumerate}
+    \item $T \leftarrow$ generateTraces($\phi$, $s$)   % synthetic streams, fully documented
+    \item \textbf{for} each learner $i$, day $t$ \textbf{do}
+    \item \quad $\hat{s}_t \leftarrow f_\theta(\mathbf{x}_t)$; \; $H_t \leftarrow$ harmScore($\hat{s}_t, e_{t-1}$)
+    \item \quad $e_t \leftarrow$ downgrade($H_t, \tau$) \textbf{if} $H_t > \tau$ \textbf{else} $\pi_\theta(\hat{s}_t)$
+    \item \quad append $(i, t, H_t, \tau, e_t)$ to $L$
+    \item \textbf{assert} $H_t \le \tau$ for every applied $e_t$ \; \textit{(constraint never breached)}
+    \item \textbf{assert} downgrade occurs on the spike day and nowhere else \; \textit{(sensitivity)}
+    \item \textbf{assert} flat trace yields no downgrade \; \textit{(no false triggers)}
+\end{enumerate}
+\hrulefill
+\end{algorithm}
+
+\textbf{Worked example run.} Table~\ref{tab:dryrun} shows four hand-checkable steps for one
+simulated learner. The five standardised indicators are given, $H_t$ follows directly from
+Equation~\ref{eq:harm} with equal weights ($w_k = 1/5$), and $\tau = 1.00$ stands for the value
+the Week-0 calibration would produce. The numbers are illustrative values of the metric, not
+measurements of any person, and they exist so that the decision logic can be verified by
+arithmetic.
+
+\begin{table}[H]
+\caption{Illustrative controller trace on synthetic input (worked example, not empirical data)}
+\label{tab:dryrun}
+\fontsize{10pt}{12pt}\selectfont
+\begin{tabular}{|C{0.8cm}|L{6.0cm}|C{1.2cm}|C{1.2cm}|L{4.4cm}|}
+\hline
+\centering\textbf{Step $t$} & \centering\textbf{Standardised indicators $(z_1,\dots,z_5)$} & \centering\textbf{$H_t$} & \centering\textbf{$\tau$} & \centering\textbf{Configuration $e_t$}
+\tabularnewline
+\hline
+1 & $(0.2,\; -0.3,\; 0.1,\; -0.2,\; 0.0)$ & $-0.04$ & $1.00$ & Full configuration; public leaderboard on
+\tabularnewline
+\hline
+2 & $(0.6,\; 0.4,\; 0.5,\; 0.3,\; 0.2)$ & $0.40$ & $1.00$ & Adaptive selection: relative leaderboard, capped rewards
+\tabularnewline
+\hline
+3 & $(1.8,\; 1.5,\; 1.6,\; 1.2,\; 1.4)$ & $1.50$ & $1.00$ & Constraint violated: downgrade per Table~\ref{tab:downgrade-rules}
+\tabularnewline
+\hline
+4 & $(0.9,\; 0.7,\; 0.8,\; 0.6,\; 0.5)$ & $0.70$ & $1.00$ & Back under threshold: adaptive selection restored
+\tabularnewline
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Platform instrumentation.} The system is implemented as a plugin for a mainstream LMS
+(Moodle 4.x) backed by a Python service. Every gamification element is wrapped by an event emitter
+so that exposure, response and abandonment are separable, and every controller decision is written
+to an append-only log containing the state estimate, the harm score and the configuration applied,
+which makes the controller auditable as required by the ethical specification below.
+
+\textbf{Tools.} The dry run needs only Python 3.11, NumPy and pytest, so the harness of
+Algorithm~\ref{alg:dryrun} is replicable without special hardware or licensed software. For the
+study itself, PyTorch is used for the state-estimation model, scikit-learn for the comparator
+baselines, and pandas for the event pipeline; the models are deliberately small -- gradient-boosted
+trees and a shallow multilayer perceptron -- because inference runs per decision window on a single
+CPU server rather than on a GPU cluster, which keeps latency low and replication feasible.
+Mixed-effects analysis is performed in R with lme4 and in Python with statsmodels; the LaTeX source,
+the generator script and the pre-registration are versioned in Git. Hardware is a university-hosted
+server (8 cores, 32\,GB RAM); no participant data leave the institution's access-controlled network.
 
 \subsubsection{Ethical Considerations}
 
@@ -386,11 +556,41 @@ Non-maleficence is enforced structurally rather than declared as an intention: t
 
 \subsection{Evaluation Criteria}
 
-% Clear measurable metrics (learning gain, engagement rate, motivational-quality score,
-% harm metric values), experimental setup (hardware/software), baselines and ablation
-% (static gamification, non-gamified control; element-level ablation).
+\textbf{Model criteria.} Disengagement prediction is evaluated as binary classification
+(disengaged during the next session: yes/no) using area under the ROC curve, precision, recall and
+F1, with a pre-set acceptance threshold of AUC $\ge 0.75$. The anxiety estimate is evaluated by its
+correlation with the concurrent STAI-6 wave at weeks 6 and 12, requiring $r \ge 0.40$. Both are
+compared against simple baselines: a session-length-only logistic regression and last-value
+persistence.
 
-[Metrics, baselines, ablation plan, and experimental setup.]
+\textbf{Metric criteria.} The harm score must pass the three validation checks specified in
+Section~\ref{sec:harm} -- Cronbach's $\alpha \ge 0.70$ for each multi-item scale, a positive
+moderate correlation with the concurrent self-report wave, and prediction of session abandonment
+within 24 hours above the no-skill rate -- before it is interpreted as a measure.
+
+\textbf{Outcome criteria.} Educational benefit is measured by assessment marks and pre-to-post
+knowledge gain (Hedges' $g$); engagement by weekly active sessions, time-on-task and module
+completion rate; motivational quality by the MSLQ and the intrinsic-motivation items; harm by the
+weekly mean and weekly peak of $H_t$, the proportion of decision points at which $H_t>\tau$, and the
+STAI-6 waves. The primary hypothesis is that condition A records a weekly mean harm score at least
+20\% lower than condition S while marks and weekly sessions remain within a 10\% non-inferiority
+margin of condition S, and that both gamified conditions exceed condition C on knowledge gain.
+
+\textbf{Baselines and ablation.} Condition S is the static baseline: one literature-standard
+configuration applied uniformly to every learner. Condition C is the non-gamified baseline:
+identical content, assessments and instructor contact without any game element. Two component
+ablations are run offline by replaying logged windows: (i) the policy with the harm constraint
+removed, that is, engagement-only adaptation, which isolates the contribution of $H_t$; and (ii) a
+rule-based state estimator in place of the learned model, which isolates the contribution of
+learning. Because both ablations are evaluated by replay, no participant is exposed to a
+configuration that the constraint would have forbidden.
+
+\textbf{Experimental setup and analysis.} All three conditions share content, instructor,
+assessment schedule and platform; gamification contributes no course marks. Analyses use linear
+mixed-effects models with random intercepts for learner and week, report effect sizes with 95\%
+confidence intervals, apply the non-inferiority test at $\alpha = 0.05$, and correct for multiple
+comparisons across secondary outcomes. System-level criteria are decision latency below one second
+per decision window and complete coverage of active learners by the state model.
 
 \subsection{Harm-Detection Variables and Measurement}
 \label{sec:harm}
@@ -481,7 +681,35 @@ Two design decisions follow from the literature. First, the downgrade rules are 
 % Anticipated findings, significance to the field, deliverables.
 % Must be specific and measurable.
 
-[Anticipated findings, contributions, and deliverables.]
+The proposal is expected to yield four specific and measurable contributions.
+
+\textbf{(1) A validated real-time learner-state model.} Engagement and anxiety are estimated from
+ordinary platform interaction traces, with a target of AUC $\ge 0.75$ for disengagement prediction
+and $r \ge 0.40$ with self-reported state anxiety, without EEG or continuous facial capture, so
+that the model is deployable under the privacy constraints of a real course.
+
+\textbf{(2) An operational harm metric.} Equation~\ref{eq:harm} delivers a harm quantity that a
+running system can evaluate at decision time rather than a post-hoc qualitative category
+\parencite{nugroho2025negative,edwards2022anxiety}, complete with an individualised calibration
+procedure for $\tau$, three psychometric and predictive validation checks, and a pre-registered
+weighting scheme.
+
+\textbf{(3) A tested set of element-configuration rules.} Table~\ref{tab:downgrade-rules} is
+expected to be confirmed or revised empirically, yielding evidence on whether harm can be reduced
+by at least 20\% relative to static gamification while marks and weekly sessions stay within a 10\%
+non-inferiority margin, and identifying which substitutions (relative leaderboards, reward caps,
+difficulty adaptation, narrative prioritisation) carry that effect.
+
+\textbf{(4) A semester-long three-arm comparison.} The evaluation responds directly to the
+short-duration, benefit-only designs summarised in Section~2.3 \parencite{lu2024ai,ming2025gamification}
+by measuring benefit and harm on the same weekly schedule over 14 weeks.
+
+Deliverables are the instrumented LMS plugin and controller source code, the pre-registered
+analysis plan, a de-identified dataset with a data dictionary subject to the retention policy of
+Section~6.3, a reproducibility package, and at least one manuscript submitted to a peer-reviewed
+venue. For the field, the contribution is a shift from asking \emph{whether} gamification works to
+asking \emph{which configuration is safe for which learner at which moment} -- a prerequisite for
+deploying gamification responsibly at scale.
 
 
 % =========================================
@@ -525,12 +753,28 @@ Two design decisions follow from the literature. First, the downgrade rules are 
 
 \subsection{Summary of Contributions}
 
-[Recap the proposed solution and its expected contribution -- no new information.]
+This proposal responds to a gap the literature has made explicit: the benefits of gamification are
+well documented and its harms are increasingly well documented, yet no existing system measures
+harm as a quantity, reacts to it while the learner is still engaged, or is evaluated against
+benefit and harm together. The proposed adaptive, harm-aware controller closes that loop by
+combining a real-time engagement--anxiety state model, an individualised harm score $H_t$
+constrained by the threshold $\tau$, and a pre-registered set of downgrade rules, all evaluated in
+a 14-week three-arm quasi-experiment against static-gamified and non-gamified baselines. The study
+is expected to produce a validated state model (AUC $\ge 0.75$), a validated harm metric, and
+element-configuration rules, with the central anticipated result that harm falls by at least 20\%
+relative to static gamification while marks and weekly sessions remain within a 10\%
+non-inferiority margin. Together these answer \rqlink{1} through \rqlink{3} and give educators an
+evidence-based and auditable basis for deploying gamification.
 
 \subsection{Final Remarks}
 
-[The take-home message: harm-aware adaptive gamification as a responsible next step
-for technology-enhanced learning.]
+Gamification does not need to be abandoned; it needs to be governed. Treating documented harms as
+measurable, constrainable quantities rather than as unavoidable side effects converts the ethical
+principle of non-maleficence into an engineering requirement, and gives institutions a defensible
+basis for using adaptive gamification in personalised learning at scale. Harm-aware adaptation is
+therefore the responsible next step for technology-enhanced learning: the question is no longer
+whether game elements can motivate learners, but whether a system can detect when it is doing harm
+and act on that knowledge before the learner disengages.
 
 
 \end{justify}
@@ -565,7 +809,9 @@ for technology-enhanced learning.]
 
 \vspace{0.5cm}
 
-The group should combine all individual article reviews into one matrix.
+The matrix below combines the individual article reviews prepared by the three group members. Each
+row records the study's method, data, key results, and the strength, limitation and research gap
+that it contributes to this proposal.
 
 
 \vspace{0.5cm}
@@ -582,7 +828,7 @@ The group should combine all individual article reviews into one matrix.
 \caption{Group article matrix of reviewed research studies}
 \label{tab:article-matrix}
 
-\fontsize{10pt}{12pt}\selectfont
+\fontsize{9pt}{10.5pt}\selectfont
 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|L{2.2cm}|L{1.5cm}|C{1cm}|L{2.6cm}|L{2.6cm}|L{3.2cm}|L{2.6cm}|L{2.4cm}|L{2.6cm}|}
