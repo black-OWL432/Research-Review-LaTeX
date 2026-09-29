@@ -17,3 +17,5 @@ main.pdf
 *.run.xml
 *.gz
 *.toc
+*.nav
+*.snm
